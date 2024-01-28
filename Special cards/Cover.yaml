@@ -1,0 +1,298 @@
+square: false
+type: grid
+cards:
+  - type: custom:stack-in-card
+    mode: vertical
+    keep:
+      margin: true
+      border_radius: true
+      background: true
+      outer_padding: false
+    card_mod:
+      style: |
+        ha-card {
+          border-radius: 18px;
+          {% if is_state('cover.shellyplus2pm_5443b23efedc', 'open') %}
+          background-color: var(--contrast15);  
+          {% elif is_state('cover.shellyplus2pm_5443b23efedc', 'opening') %}
+          background-color: var(--contrast15);
+          {% elif is_state('cover.shellyplus2pm_5443b23efedc', 'closing') %}
+          background-color: var(--contrast15);
+          {% elif is_state('cover.shellyplus2pm_5443b23efedc', 'closed') %}
+          background-color: var(--contrast0);
+          {% else %}
+          background-color: var(--red);
+          {% endif %}
+          }
+    cards:
+      - type: custom:button-card
+        entity: cover.shellyplus2pm_5443b23efedc
+        name: >-
+          [[[return
+          states["cover.shellyplus2pm_5443b23efedc"].attributes.current_position]]]
+        styles:
+          grid:
+            - grid-template-areas: '"n eenheid" "l l"'
+            - grid-template-columns: min-content min-content
+          name:
+            - font-size: 32px
+            - color: var(--contrast15)
+          card:
+            - height: 80px
+            - border-radius: 18px
+            - padding: 0px 0 6px 6px
+            - box-sizing: border-box
+            - background: none
+            - box-shadow: none
+            - margin-bottom: '-10px'
+            - '--mdc-ripple-press-opacity': 0
+          label:
+            - justify-self: start
+            - font-size: 12px
+            - color: var(--contrast15)
+            - margin-bottom: 6px
+          custom_fields:
+            eenheid:
+              - font-size: 12px
+              - color: |
+                  [[[
+                    if (entity.state == "open") return "var(--contrast0)";
+                    if (entity.state == "opening") return "var(--contrast15)";
+                    if (entity.state == "closing") return "var(--contrast15)";
+                    else return "var(--contrast15)";
+                  ]]]
+              - margin-bottom: '-20px'
+              - padding-left: 2px
+              - margin-right: 100px
+        label: Triangolo
+        custom_fields:
+          eenheid: '&nbsp;%'
+        show_label: true
+        tap_action:
+          action: more-info
+        state:
+          - value: open
+            label: Triangolo aperto
+            styles:
+              label:
+                - color: var(--contrast0)
+                - font-family: Product Sans
+                - font-weight: bold
+              name:
+                - color: var(--contrast0)
+                - font-family: Product Sans Medium
+          - value: closed
+            label: Triangolo chiuso
+            name: '0'
+            styles:
+              name:
+                - color: var(--contrast15)
+                - font-family: Product Sans Medium
+                - font-size: 24px
+              label:
+                - font-family: Product Sans
+          - value: closing
+            name: In chiusura
+            label: Triangolo
+            styles:
+              name:
+                - color: var(--contrast0)
+                - font-family: Product Sans Medium
+                - font-size: 14px
+              label:
+                - font-weight: bold
+          - value: opening
+            name: In apertura
+            label: Triangolo
+            styles:
+              name:
+                - color: var(--contrast0)
+                - font-family: Product Sans Medium
+                - font-size: 14px
+              label:
+                - font-weight: bold
+      - type: custom:my-slider-v2
+        entity: cover.shellyplus2pm_5443b23efedc
+        vertical: false
+        styles:
+          container:
+            - border-radius: 100px
+            - overflow: visible
+            - background: none
+          card:
+            - height: 26px
+            - padding: 0px 20px 0px 8px
+            - background: |
+                [[[
+                  if (entity.state == "open") return "var(--contrast0)";
+                  if (entity.state == "opening") return "var(--contrast0)";
+                  if (entity.state == "closing") return "var(--contrast0)";
+                  else return "var(--contrast15)";
+                ]]]
+            - margin-bottom: 15px
+            - margin-left: 5px
+            - margin-right: 5px
+          track:
+            - overflow: visible
+            - background: none
+          progress:
+            - background: none
+          thumb:
+            - background: |
+                [[[
+                  if (entity.state == "open") return "var(--contrast15)";
+                  else return "var(--contrast0)";
+                ]]]
+            - top: 2px
+            - right: '-18px'
+            - height: 22px
+            - width: 22px
+            - border-radius: 100px
+  - type: custom:stack-in-card
+    mode: vertical
+    keep:
+      margin: true
+      border_radius: true
+      background: true
+      outer_padding: false
+    card_mod:
+      style: |
+        ha-card {
+          border-radius: 18px;
+          {% if is_state('cover.shelly_comandi_tenda_veranda', 'open') %}
+          background-color: var(--contrast15);  
+          {% elif is_state('cover.shelly_comandi_tenda_veranda', 'opening') %}
+          background-color: var(--contrast15);
+          {% elif is_state('cover.shelly_comandi_tenda_veranda', 'closing') %}
+          background-color: var(--contrast15);
+          {% elif is_state('cover.shelly_comandi_tenda_veranda', 'closed') %}
+          background-color: var(--contrast0);
+          {% else %}
+          background-color: var(--red);
+          {% endif %}
+          }
+    cards:
+      - type: custom:button-card
+        entity: cover.shelly_comandi_tenda_veranda
+        name: >-
+          [[[return
+          states["cover.shelly_comandi_tenda_veranda"].attributes.current_position]]]
+        styles:
+          grid:
+            - grid-template-areas: '"n eenheid" "l l"'
+            - grid-template-columns: min-content min-content
+          name:
+            - font-size: 32px
+            - color: var(--contrast15)
+          card:
+            - height: 80px
+            - border-radius: 18px
+            - padding: 0px 0 6px 6px
+            - box-sizing: border-box
+            - background: none
+            - box-shadow: none
+            - margin-bottom: '-10px'
+            - '--mdc-ripple-press-opacity': 0
+          label:
+            - justify-self: start
+            - font-size: 12px
+            - color: var(--contrast15)
+            - margin-bottom: 6px
+          custom_fields:
+            eenheid:
+              - font-size: 12px
+              - color: |
+                  [[[
+                    if (entity.state == "open") return "var(--contrast0)";
+                    if (entity.state == "opening") return "var(--contrast15)";
+                    if (entity.state == "closing") return "var(--contrast15)";
+                    else return "var(--contrast15)";
+                  ]]]
+              - margin-bottom: '-20px'
+              - padding-left: 2px
+              - margin-right: 100px
+        label: Tenda
+        custom_fields:
+          eenheid: '&nbsp;%'
+        show_label: true
+        tap_action:
+          action: more-info
+        state:
+          - value: open
+            label: Tenda abbassata
+            styles:
+              label:
+                - color: var(--contrast0)
+                - font-family: Product Sans
+                - font-weight: bold
+              name:
+                - color: var(--contrast0)
+                - font-family: Product Sans Medium
+          - value: closed
+            label: Tenda alzata
+            name: '0'
+            styles:
+              name:
+                - color: var(--contrast15)
+                - font-family: Product Sans Medium
+                - font-size: 24px
+              label:
+                - font-family: Product Sans
+          - value: closing
+            name: Si sta alzando
+            label: Tenda
+            styles:
+              name:
+                - color: var(--contrast0)
+                - font-family: Product Sans Medium
+                - font-size: 14px
+              label:
+                - font-weight: bold
+          - value: opening
+            name: Si sta abbassando
+            label: Tenda
+            styles:
+              name:
+                - color: var(--contrast0)
+                - font-family: Product Sans Medium
+                - font-size: 14px
+              label:
+                - font-weight: bold
+      - type: custom:my-slider-v2
+        entity: cover.shelly_comandi_tenda_veranda
+        vertical: false
+        styles:
+          container:
+            - border-radius: 100px
+            - overflow: visible
+            - background: none
+          card:
+            - height: 26px
+            - padding: 0px 20px 0px 8px
+            - background: |
+                [[[
+                  if (entity.state == "open") return "var(--contrast0)";
+                  if (entity.state == "opening") return "var(--contrast0)";
+                  if (entity.state == "closing") return "var(--contrast0)";
+                  else return "var(--contrast15)";
+                ]]]
+            - margin-bottom: 15px
+            - margin-left: 5px
+            - margin-right: 5px
+          track:
+            - overflow: visible
+            - background: none
+          progress:
+            - background: none
+          thumb:
+            - background: |
+                [[[
+                  if (entity.state == "open") return "var(--contrast15)";
+                  else return "var(--contrast0)";
+                ]]]
+            - top: 2px
+            - right: '-18px'
+            - height: 22px
+            - width: 22px
+            - border-radius: 100px
+columns: 2

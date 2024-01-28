@@ -1,0 +1,146 @@
+type: vertical-stack
+cards:
+  - type: custom:button-card
+    name: Benessere
+    label: Il tuo ambiente
+    show_label: true
+    styles:
+      card:
+        - background: none
+        - padding: 0px 12px
+        - margin-bottom: '-5px'
+        - margin-top: 15px
+        - '--mdc-ripple-press-opacity': 0
+      name:
+        - font-family: Product Sans
+        - justify-self: start
+        - font-size: 20px
+        - color: var(--contrast20)
+      label:
+        - font-family: Product Sans Light
+        - justify-self: start
+        - font-size: 16px
+        - color: var(--contrast10)
+  - type: custom:stack-in-card
+    mode: horizontal
+    keep:
+      margin: true
+      border_radius: true
+      background: true
+      outer_padding: false
+    card_mod:
+      style: |
+        ha-card {
+          background-color: var(--contrast0);
+          border-radius: 18px;
+          font-family: Product Sans ;
+          }
+    cards:
+      - type: custom:button-card
+        name: Clima generale casa
+        entity: input_boolean.clima_casa_on_off
+        show_icon: false
+        show_label: true
+        tap_action:
+          action: none
+        hold_action:
+          action: none
+        styles:
+          card:
+            - background: none
+            - padding: 0px 12px
+            - margin-bottom: '-5px'
+            - margin-top: 15px
+            - '--mdc-ripple-press-opacity': 0
+          name:
+            - font-family: Product Sans Light
+            - justify-self: start
+            - font-size: 16px
+            - color: var(--contrast10)
+          label:
+            - font-family: Product Sans Black
+            - justify-self: start
+            - font-size: 24px
+            - color: var(--contrast20)
+        state:
+          - value: 'off'
+            label: In funzione
+            styles:
+              label:
+                - font-family: Product Sans Black
+          - value: 'on'
+            label: Arrestato
+      - type: custom:button-card
+        name: ' '
+        icon: mdi:check
+        entity: input_boolean.clima_casa_on_off
+        hold_action:
+          haptic: heavy
+          action: toggle
+        tap_action:
+          action: none
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "slider"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - '--mdc-ripple-press-opacity': 0
+            - color: var(--contrast15)
+            - height: 50px
+            - width: 50px
+            - box-shadow: none
+            - margin: 20px
+          img_cell:
+            - justify-self: center
+            - width: 20px
+            - margin: 10px 0px 0px 0px
+          icon:
+            - width: 20px
+            - height: 20px
+            - color: var(--contrast0)
+          name:
+            - justify-self: center
+            - font-size: 12px
+            - margin: 0px 0px 10px 0px
+            - color: var(--black)
+            - font-family: Product Sans
+        state:
+          - value: 'off'
+            icon: mdi:check
+            name: ' '
+            styles:
+              card:
+                - background: var(--contrast15)
+                - border-radius: 12px
+              icon:
+                - color: var(--contrast0)
+          - value: 'on'
+            icon: mdi:stop
+            name: ' '
+            styles:
+              card:
+                - background: var(--red)
+                - border-radius: 100px
+              icon:
+                - color: var(--black)
+  - type: custom:mushroom-select-card
+    entity: input_select.sosp_gest_auto_casa
+    name: Comfort
+    icon: mdi:home-thermometer
+    icon_color: '#c9a99f'
+    hold_action:
+      action: none
+    double_tap_action:
+      action: none
+    primary_info: name
+    secondary_info: none
+    layout: horizontal
+    card_mod:
+      style: |
+        ha-card {
+        box-shadow: none;
+          background: rgba(0,0,0,0);
+          font-family: Product Sans ;
+        }

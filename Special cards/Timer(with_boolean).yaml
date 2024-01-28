@@ -1,0 +1,276 @@
+type: vertical-stack
+cards:
+  - type: custom:stack-in-card
+    mode: vertical
+    keep:
+      margin: true
+      border_radius: true
+      background: true
+      outer_padding: false
+    card_mod:
+      style: |
+        ha-card {
+          border-radius: 18px;
+          {% if is_state('input_boolean.acqua_osmosi_andrea_1h', 'on') %}
+          background-color: var(--contrast15);  
+          {% else %}
+          background-color: var(--contrast0);
+          {% endif %}
+          }
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            label: 5 litri
+            entity: input_boolean.acqua_osmosi_andrea_1h
+            show_icon: false
+            show_label: true
+            tap_action:
+              action: none
+            hold_action:
+              action: none
+            styles:
+              card:
+                - background: none
+                - padding: 0px 12px
+                - margin-bottom: '-5px'
+                - margin-top: 15px
+                - '--mdc-ripple-press-opacity': 0
+              name:
+                - font-family: Product Sans Light
+                - justify-self: start
+                - font-size: 16px
+                - color: |
+                    [[[
+                      if (entity.state == "on") return "var(--contrast0)";
+                      if (entity.state == "off") return "var(--contrast10)";
+                      else return "var(--red)";
+                    ]]]
+              label:
+                - justify-self: start
+                - font-size: 24px
+                - font-weight: bold
+                - color: |
+                    [[[
+                      if (entity.state == "on") return "var(--contrast0)";
+                      if (entity.state == "off") return "var(--contrast15)";
+                      else return "var(--red)";
+                    ]]]
+            state:
+              - value: 'on'
+                name: In corso
+              - value: 'off'
+                name: Spento
+          - type: custom:button-card
+            name: ' '
+            icon: mdi:toggle-switch-off-outline
+            entity: input_boolean.acqua_osmosi_andrea_1h
+            hold_action:
+              haptic: heavy
+              action: toggle
+            tap_action:
+              action: none
+            styles:
+              grid:
+                - grid-template-areas: '"i" "n" "slider"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - background: |
+                    [[[
+                      if (entity.state == "on") return "var(--contrast0)";
+                      if (entity.state == "off") return "var(--contrast00)";
+                      else return "var(--red)";
+                    ]]]
+                - '--mdc-ripple-press-opacity': 0
+                - color: var(--contrast15)
+                - height: 50px
+                - width: 50px
+                - box-shadow: none
+                - margin: 20px
+              img_cell:
+                - justify-self: center
+                - width: 40px
+                - margin: 10px 0px 0px 0px
+              icon:
+                - width: 40px
+                - height: 40px
+                - color: var(--contrast15)
+              name:
+                - justify-self: center
+                - font-size: 12px
+                - margin: 0px 0px 10px 0px
+                - color: var(--black)
+                - font-family: Product Sans
+            state:
+              - value: 'on'
+                icon: mdi:toggle-switch
+                name: ' '
+                styles:
+                  card:
+                    - border-radius: 12px
+              - value: 'off'
+                name: ' '
+                styles:
+                  card:
+                    - border-radius: 100px
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.acqua_osmosi_andrea_1h
+            state: 'on'
+        card:
+          type: custom:circular-timer-card
+          entity: timer.5_litri
+          bins: 30
+          layout: minimal
+          icon: none
+          secondary_info_size: 1
+          primary_info: none
+          tap_action: none
+          hold_action: more-info
+          double_tap_action: none
+          card_mod:
+            style: |
+              ha-card {
+                font-family: product sans black;
+                background-color: transparent;
+                margin-top: -10%;
+                }
+  - type: custom:stack-in-card
+    mode: vertical
+    keep:
+      margin: true
+      border_radius: true
+      background: true
+      outer_padding: false
+    card_mod:
+      style: |
+        ha-card {
+          border-radius: 18px;
+          {% if is_state('input_boolean.acqua_osmosi_1l', 'on') %}
+          background-color: var(--contrast15);  
+          {% else %}
+          background-color: var(--contrast0);
+          {% endif %}
+          }
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            label: 1 litro
+            entity: input_boolean.acqua_osmosi_1l
+            show_icon: false
+            show_label: true
+            tap_action:
+              action: none
+            hold_action:
+              action: none
+            styles:
+              card:
+                - background: none
+                - padding: 0px 12px
+                - margin-bottom: '-5px'
+                - margin-top: 15px
+                - '--mdc-ripple-press-opacity': 0
+              name:
+                - font-family: Product Sans Light
+                - justify-self: start
+                - font-size: 16px
+                - color: |
+                    [[[
+                      if (entity.state == "on") return "var(--contrast0)";
+                      if (entity.state == "off") return "var(--contrast10)";
+                      else return "var(--red)";
+                    ]]]
+              label:
+                - justify-self: start
+                - font-size: 24px
+                - font-weight: bold
+                - color: |
+                    [[[
+                      if (entity.state == "on") return "var(--contrast0)";
+                      if (entity.state == "off") return "var(--contrast15)";
+                      else return "var(--red)";
+                    ]]]
+            state:
+              - value: 'on'
+                name: In corso
+              - value: 'off'
+                name: Spento
+          - type: custom:button-card
+            name: ' '
+            icon: mdi:toggle-switch-off-outline
+            entity: input_boolean.acqua_osmosi_1l
+            hold_action:
+              haptic: heavy
+              action: toggle
+            tap_action:
+              action: none
+            styles:
+              grid:
+                - grid-template-areas: '"i" "n" "slider"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - background: |
+                    [[[
+                      if (entity.state == "on") return "var(--contrast0)";
+                      if (entity.state == "off") return "var(--contrast00)";
+                      else return "var(--red)";
+                    ]]]
+                - '--mdc-ripple-press-opacity': 0
+                - color: var(--contrast15)
+                - height: 50px
+                - width: 50px
+                - box-shadow: none
+                - margin: 20px
+              img_cell:
+                - justify-self: center
+                - width: 40px
+                - margin: 10px 0px 0px 0px
+              icon:
+                - width: 40px
+                - height: 40px
+                - color: var(--contrast15)
+              name:
+                - justify-self: center
+                - font-size: 12px
+                - margin: 0px 0px 10px 0px
+                - color: var(--black)
+                - font-family: Product Sans
+            state:
+              - value: 'on'
+                icon: mdi:toggle-switch
+                name: ' '
+                styles:
+                  card:
+                    - border-radius: 12px
+              - value: 'off'
+                name: ' '
+                styles:
+                  card:
+                    - border-radius: 100px
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.acqua_osmosi_1l
+            state: 'on'
+        card:
+          type: custom:circular-timer-card
+          entity: timer.1_litro
+          bins: 30
+          layout: minimal
+          icon: none
+          secondary_info_size: 1
+          primary_info: none
+          tap_action: none
+          hold_action: more-info
+          double_tap_action: none
+          card_mod:
+            style: |
+              ha-card {
+                font-family: product sans black;
+                background-color: transparent;
+                margin-top: -10%;
+                }

@@ -1,0 +1,738 @@
+type: vertical-stack
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        name: Controlla
+        label: Shenron
+        show_label: true
+        styles:
+          card:
+            - background: none
+            - padding: 0px 12px
+            - margin-bottom: 0px
+            - '--mdc-ripple-press-opacity': 0
+            - margin-left: '-5px'
+          name:
+            - font-family: Product Sans
+            - justify-self: start
+            - font-size: 16px
+            - color: var(--contrast10)
+          label:
+            - font-family: Product Sans
+            - justify-self: start
+            - font-size: 20px
+            - color: var(--contrast20)
+            - font-weight: bold
+      - type: custom:button-card
+        name: ' '
+        show_icon: false
+        show_state: false
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "slider"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background-image: url("/local/shenronn.jpg")
+            - background-size: 140% 100%
+            - '--mdc-ripple-press-opacity': 0
+            - border-radius: 100px
+            - height: 40px
+            - width: 40px
+        card_mod:
+          style: |
+            ha-card {
+              transition: 500ms !important;
+              }
+  - type: custom:button-card
+    entity: calendar.zoo_andrea_2
+    icon: mdi:help
+    name: Non connesso
+    show_label: false
+    state:
+      - value: 'on'
+        name: '[[[ return (states[''calendar.zoo_andrea_2''].attributes.message) ]]]'
+        icon: mdi:food-drumstick
+        styles:
+          card:
+            - background: var(--contrast15)
+          icon:
+            - color: var(--contrast0)
+            - height: 100px
+          name:
+            - color: var(--contrast0)
+            - font-size: 24px
+            - font-weight: bold
+          label:
+            - color: var(--contrast0)
+      - value: 'off'
+        name: Sazia :)
+        icon: mdi:food-drumstick-off-outline
+        styles:
+          card:
+            - background: var(--contrast0)
+          icon:
+            - color: var(--contrast15)
+            - height: 100px
+          name:
+            - color: var(--contrast15)
+            - font-size: 24px
+          label:
+            - color: var(--contrast15)
+    styles:
+      grid:
+        - grid-template-areas: '"i" "n" "l"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      card:
+        - background: var(--contrast0)
+        - padding: 8px
+        - '--mdc-ripple-press-opacity': 0
+        - box-shadow: none
+        - height: 100px
+        - border-radius: 18px
+      img_cell:
+        - justify-self: start
+        - width: 24px
+        - margin: 10px
+        - margin-top: 20px
+      icon:
+        - width: 24px
+        - height: 24px
+        - color: var(--contrast15)
+      name:
+        - justify-self: start
+        - font-size: 14px
+        - padding: 8px 0px 8px 8px
+        - color: var(--contrast15)
+        - font-family: Product Sans
+    tap_action:
+      action: none
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: custom:stack-in-card
+        mode: vertical
+        keep:
+          margin: true
+          border_radius: true
+          background: true
+          outer_padding: false
+        card_mod:
+          style: |
+            ha-card {
+              border-radius: 18px;
+              background-color: var(--contrast0);
+              }
+        cards:
+          - type: custom:button-card
+            entity: sensor.serra_temperatura
+            name: '[[[return states["sensor.serra_temperatura"].state]]]'
+            styles:
+              grid:
+                - grid-template-areas: '"n eenheid" "l l"'
+                - grid-template-columns: min-content min-content
+              name:
+                - font-size: 28px
+                - color: var(--contrast15)
+                - font-weight: bold
+              card:
+                - height: 80px
+                - border-radius: 18px
+                - padding: 0px 0 6px 6px
+                - box-sizing: border-box
+                - background: none
+                - box-shadow: none
+                - margin-bottom: '-10px'
+                - '--mdc-ripple-press-opacity': 0
+              label:
+                - justify-self: start
+                - font-size: 13px
+                - color: var(--contrast15)
+                - margin-bottom: 0px
+              custom_fields:
+                eenheid:
+                  - font-size: 12px
+                  - margin-bottom: '-10px'
+                  - padding-left: 2px
+                  - margin-right: 100px
+                  - color: var(--contrast15)
+            label: Temperatura
+            custom_fields:
+              eenheid: '&nbsp;°C'
+            show_label: true
+            tap_action:
+              action: more-info
+              haptic: light
+          - type: custom:bar-card
+            severity:
+              - color: var(--contrast15)
+                from: 0
+                to: 26
+              - color: var(--red)
+                from: 26
+                to: 35
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgb(0,0,0,0);
+                  box-shadow: none;
+                  --primary-text-color: var(--contrast15);
+                  font-family: Product Sans;
+                  margin-left: 0px;
+                  margin-right: 0px;
+                  margin-top: 0px;
+                  margin-bottom: 0px;
+                  font-weight: bold;
+                  }
+                bar-card-name {
+                  margin-left: 0px;
+                }
+                bar-card-value {
+                  margin-right: 0px;
+                  font-family: Product Sans Medium ;
+                }
+                bar-card-backgroundbar {
+                background: var(--contrast18); 
+                }
+                bar-card-card {
+                  margin-top: -15px;
+                  margin-left: -10px;
+                  margin-right: 0px;
+                  margin-bottom: 0px;
+                }
+            entities:
+              - entity: sensor.serra_temperatura
+                name: Consumo
+                icon: none
+                min: 15
+                max: 30
+                direction: right
+                height: 20px
+                positions:
+                  icon: 'off'
+                  name: 'off'
+                  value: 'off'
+                  indicator: 'off'
+                unit_of_measurement: W
+                decimal: 0
+            tap_action:
+              action: more-info
+              haptic: light
+      - type: custom:stack-in-card
+        mode: vertical
+        keep:
+          margin: true
+          border_radius: true
+          background: true
+          outer_padding: false
+        card_mod:
+          style: |
+            ha-card {
+              border-radius: 18px;
+              background-color: var(--contrast0);
+              }
+        cards:
+          - type: custom:button-card
+            entity: sensor.serra_humidity
+            name: '[[[return states["sensor.serra_humidity"].state]]]'
+            styles:
+              grid:
+                - grid-template-areas: '"n eenheid" "l l"'
+                - grid-template-columns: min-content min-content
+              name:
+                - font-size: 28px
+                - color: var(--contrast15)
+                - font-weight: bold
+              card:
+                - height: 80px
+                - border-radius: 18px
+                - padding: 0px 0 6px 6px
+                - box-sizing: border-box
+                - background: none
+                - box-shadow: none
+                - margin-bottom: '-10px'
+                - '--mdc-ripple-press-opacity': 0
+              label:
+                - justify-self: start
+                - font-size: 13px
+                - color: var(--contrast15)
+                - margin-bottom: 0px
+              custom_fields:
+                eenheid:
+                  - font-size: 12px
+                  - margin-bottom: '-10px'
+                  - padding-left: 2px
+                  - margin-right: 100px
+                  - color: var(--contrast15)
+            label: Umidità
+            custom_fields:
+              eenheid: '&nbsp;%'
+            show_label: true
+            tap_action:
+              action: more-info
+              haptic: light
+          - type: custom:bar-card
+            severity:
+              - color: var(--contrast15)
+                from: 0
+                to: 60
+              - color: var(--red)
+                from: 60
+                to: 100
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgb(0,0,0,0);
+                  box-shadow: none;
+                  --primary-text-color: var(--contrast15);
+                  font-family: Product Sans;
+                  margin-left: 0px;
+                  margin-right: 0px;
+                  margin-top: 0px;
+                  margin-bottom: 0px;
+                  font-weight: bold;
+                  }
+                bar-card-name {
+                  margin-left: 0px;
+                }
+                bar-card-value {
+                  margin-right: 0px;
+                  font-family: Product Sans Medium ;
+                }
+                bar-card-backgroundbar {
+                background: var(--contrast18); 
+                }
+                bar-card-card {
+                  margin-top: -15px;
+                  margin-left: -10px;
+                  margin-right: 0px;
+                  margin-bottom: 0px;
+                }
+            entities:
+              - entity: sensor.serra_humidity
+                name: Consumo
+                icon: none
+                min: 0
+                max: 100
+                direction: right
+                height: 20px
+                positions:
+                  icon: 'off'
+                  name: 'off'
+                  value: 'off'
+                  indicator: 'off'
+                unit_of_measurement: W
+                decimal: 0
+            tap_action:
+              action: more-info
+              haptic: light
+      - type: custom:stack-in-card
+        mode: vertical
+        keep:
+          margin: true
+          border_radius: true
+          background: true
+          outer_padding: false
+        card_mod:
+          style: |
+            ha-card {
+              border-radius: 18px;
+              background-color: var(--contrast0);
+              }
+        cards:
+          - type: custom:button-card
+            entity: sensor.shenron_dimmer_power
+            name: '[[[return states["sensor.shenron_dimmer_power"].state]]]'
+            styles:
+              grid:
+                - grid-template-areas: '"n eenheid" "l l"'
+                - grid-template-columns: min-content min-content
+              name:
+                - font-size: 28px
+                - color: var(--contrast15)
+                - font-weight: bold
+              card:
+                - height: 80px
+                - border-radius: 18px
+                - padding: 0px 0 6px 6px
+                - box-sizing: border-box
+                - background: none
+                - box-shadow: none
+                - margin-bottom: '-10px'
+                - '--mdc-ripple-press-opacity': 0
+              label:
+                - justify-self: start
+                - font-size: 13px
+                - color: var(--contrast15)
+                - margin-bottom: 0px
+              custom_fields:
+                eenheid:
+                  - font-size: 12px
+                  - margin-bottom: '-10px'
+                  - padding-left: 2px
+                  - margin-right: 100px
+                  - color: var(--contrast15)
+            label: Dimmer
+            custom_fields:
+              eenheid: '&nbsp;W'
+            show_label: true
+            tap_action:
+              action: more-info
+              haptic: light
+          - type: custom:bar-card
+            severity:
+              - color: var(--contrast15)
+                from: 0
+                to: 160
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgb(0,0,0,0);
+                  box-shadow: none;
+                  --primary-text-color: var(--contrast15);
+                  font-family: Product Sans;
+                  margin-left: 0px;
+                  margin-right: 0px;
+                  margin-top: 0px;
+                  margin-bottom: 0px;
+                  font-weight: bold;
+                  }
+                bar-card-name {
+                  margin-left: 0px;
+                }
+                bar-card-value {
+                  margin-right: 0px;
+                  font-family: Product Sans Medium ;
+                }
+                bar-card-backgroundbar {
+                background: var(--contrast18); 
+                }
+                bar-card-card {
+                  margin-top: -15px;
+                  margin-left: -10px;
+                  margin-right: 0px;
+                  margin-bottom: 0px;
+                }
+            entities:
+              - entity: sensor.shenron_dimmer_power
+                name: Consumo
+                icon: none
+                min: 0
+                max: 150
+                direction: right
+                height: 20px
+                positions:
+                  icon: 'off'
+                  name: 'off'
+                  value: 'off'
+                  indicator: 'off'
+                unit_of_measurement: W
+                decimal: 0
+            tap_action:
+              action: more-info
+              haptic: light
+      - type: custom:button-card
+        card_mod:
+          style: |
+            ha-card {
+              transition: 300ms !important;
+              }
+        icon: mdi:lightbulb-on-60
+        entity: light.shenron_dimmer
+        name: Basking spot
+        tap_action:
+          action: more-info
+          haptic: light
+        styles:
+          icon:
+            - width: 24px
+            - color: var(--contrast8)
+          img_cell:
+            - justify-content: flex-start
+            - margin-top: 0px
+          name:
+            - justify-self: start
+            - font-size: 16px
+            - margin-top: 0px
+            - color: var(--contrast8)
+          card:
+            - height: 100%
+            - border-radius: 24px
+            - padding: 12px 0px 12px 12px
+            - background-color: var(--contrast0)
+          grid:
+            - grid-template-areas: '"i" "n"'
+        state:
+          - value: 'on'
+            name: >-
+              [[[return
+              Math.round(states["light.shenron_dimmer"].attributes.brightness *
+              100 / 255) + " %"]]]
+            icon: mdi:lightbulb-on
+            styles:
+              card:
+                - background-color: var(--contrast15)
+                - box-shadow: none
+                - border-radius: 15px
+              name:
+                - font-size: 34px
+                - color: var(--contrast0)
+                - font-family: Product Sans Black
+                - font-weight: bold
+              icon:
+                - color: var(--contrast0)
+          - value: 'off'
+            name: Basking spot
+            icon: mdi:lightbulb-off-outline
+            styles:
+              name:
+                - color: var(--contrast15)
+              icon:
+                - color: var(--contrast15)
+              label:
+                - color: var(--contrast15)
+          - value: unavailable
+            name: Basking spot
+            icon: mdi:lightbulb-off-outline
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: switch.sonoff_10009c7508_1
+        hold_action:
+          action: none
+        tap_action:
+          haptic: heavy
+          action: more-info
+        name: ' '
+        icon: mdi:lightbulb-multiple-off-outline
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "slider"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - '--mdc-ripple-press-opacity': 0
+            - border-radius: 100px
+            - color: var(--contrast15)
+            - height: 40px
+            - width: 40px
+            - box-shadow: none
+            - margin-top: 5px
+            - margin-bottom: 5px
+          img_cell:
+            - justify-self: center
+            - width: 20px
+            - margin: 10px 0px 0px 0px
+          icon:
+            - width: 20px
+            - height: 20px
+            - color: var(--contrast15)
+          name:
+            - justify-self: center
+            - font-size: 12px
+            - margin: 0px 0px 10px 0px
+            - color: var(--black)
+            - font-family: Product Sans
+        state:
+          - value: 'on'
+            icon: mdi:lightbulb-multiple
+            styles:
+              card:
+                - background: var(--contrast15)
+              icon:
+                - color: var(--contrast0)
+        card_mod:
+          style: |
+            ha-card {
+              transition: 300ms !important;
+              }
+      - type: custom:button-card
+        entity: switch.sonoff_10009c7508_2
+        hold_action:
+          action: none
+        tap_action:
+          haptic: heavy
+          action: more-info
+        name: ' '
+        icon: mdi:fan-off
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "slider"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - '--mdc-ripple-press-opacity': 0
+            - border-radius: 100px
+            - color: var(--contrast15)
+            - height: 40px
+            - width: 40px
+            - box-shadow: none
+            - margin-top: 5px
+            - margin-bottom: 5px
+          img_cell:
+            - justify-self: center
+            - width: 20px
+            - margin: 10px 0px 0px 0px
+          icon:
+            - width: 20px
+            - height: 20px
+            - color: var(--contrast15)
+          name:
+            - justify-self: center
+            - font-size: 12px
+            - margin: 0px 0px 10px 0px
+            - color: var(--black)
+            - font-family: Product Sans
+        state:
+          - value: 'on'
+            icon: mdi:fan
+            styles:
+              card:
+                - background: var(--contrast15)
+              icon:
+                - color: var(--contrast0)
+        card_mod:
+          style: |
+            ha-card {
+              transition: 300ms !important;
+              }
+      - type: custom:button-card
+        entity: input_boolean.automazione_shenron_andrea
+        hold_action:
+          action: none
+        tap_action:
+          haptic: heavy
+          action: more-info
+        name: ' '
+        icon: mdi:toggle-switch-off-outline
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "slider"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - '--mdc-ripple-press-opacity': 0
+            - border-radius: 100px
+            - color: var(--contrast15)
+            - height: 40px
+            - width: 40px
+            - box-shadow: none
+            - margin-top: 5px
+            - margin-bottom: 5px
+          img_cell:
+            - justify-self: center
+            - width: 20px
+            - margin: 10px 0px 0px 0px
+          icon:
+            - width: 20px
+            - height: 20px
+            - color: var(--contrast15)
+          name:
+            - justify-self: center
+            - font-size: 12px
+            - margin: 0px 0px 10px 0px
+            - color: var(--black)
+            - font-family: Product Sans
+        state:
+          - value: 'on'
+            icon: mdi:brain
+            styles:
+              card:
+                - background: var(--contrast15)
+              icon:
+                - color: var(--contrast0)
+        card_mod:
+          style: |
+            ha-card {
+              transition: 300ms !important;
+              }
+      - type: custom:button-card
+        entity: input_datetime.accensione_luci_shenron
+        hold_action:
+          action: none
+        tap_action:
+          haptic: light
+          action: more-info
+        name: ' '
+        icon: mdi:white-balance-sunny
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "slider"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - '--mdc-ripple-press-opacity': 0
+            - border-radius: 15px
+            - color: var(--contrast15)
+            - height: 40px
+            - box-shadow: none
+            - margin-top: 5px
+            - margin-bottom: 5px
+          img_cell:
+            - justify-self: center
+            - width: 20px
+            - margin: 10px 0px 0px 0px
+          icon:
+            - width: 20px
+            - height: 20px
+            - color: var(--contrast15)
+          name:
+            - justify-self: center
+            - font-size: 12px
+            - margin: 0px 0px 10px 0px
+            - color: var(--black)
+            - font-family: Product Sans
+        card_mod:
+          style: |
+            ha-card {
+              transition: 300ms !important;
+              }
+      - type: custom:button-card
+        entity: input_datetime.spegnimento_luci_shenron
+        hold_action:
+          action: none
+        tap_action:
+          haptic: light
+          action: more-info
+        name: ' '
+        icon: mdi:weather-night
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "slider"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - '--mdc-ripple-press-opacity': 0
+            - border-radius: 15px
+            - color: var(--contrast15)
+            - height: 40px
+            - box-shadow: none
+            - margin-top: 5px
+            - margin-bottom: 5px
+          img_cell:
+            - justify-self: center
+            - width: 20px
+            - margin: 10px 0px 0px 0px
+          icon:
+            - width: 20px
+            - height: 20px
+            - color: var(--contrast15)
+          name:
+            - justify-self: center
+            - font-size: 12px
+            - margin: 0px 0px 10px 0px
+            - color: var(--black)
+            - font-family: Product Sans
+        card_mod:
+          style: |
+            ha-card {
+              transition: 300ms !important;
+              }

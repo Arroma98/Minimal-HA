@@ -1,0 +1,320 @@
+type: vertical-stack
+cards:
+  - type: custom:button-card
+    name: Servizi
+    label: Di cosa hai bisogno?
+    show_label: true
+    styles:
+      card:
+        - background: none
+        - padding: 0px 12px
+        - margin-bottom: '-5px'
+        - margin-top: 15px
+        - '--mdc-ripple-press-opacity': 0
+      name:
+        - font-family: Product Sans
+        - justify-self: start
+        - font-size: 20px
+        - color: var(--contrast20)
+      label:
+        - font-family: Product Sans Light
+        - justify-self: start
+        - font-size: 16px
+        - color: var(--contrast10)
+  - square: false
+    type: grid
+    cards:
+      - square: false
+        type: grid
+        cards:
+          - type: custom:button-card
+            name: Servizi
+            show_name: false
+            icon: mdi:nas
+            double_tap_action:
+              action: none
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/servizi
+              haptic: heavy
+            hold_action:
+              action: none
+            styles:
+              grid:
+                - grid-template-areas: '"i" "n" "slider"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - background: var(--contrast0)
+                - '--mdc-ripple-press-opacity': 0
+                - height: 66px
+                - border-radius: 18px
+              img_cell:
+                - justify-self: center
+                - width: 34px
+              icon:
+                - width: 24px
+                - height: 24px
+                - color: var(--contrast15)
+            card_mod:
+              style: |
+                ha-card:active {
+                  transform: scale(0.97);
+                  transition: 100ms !important;
+                  border-radius: 20px;
+                  transform-origin: center;
+                  }
+          - type: custom:button-card
+            icon: mdi:paw
+            name: Animali
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/animali
+              haptic: light
+            styles:
+              grid:
+                - grid-template-areas: '"i temp" "n hum"'
+                - grid-template-columns: 1fr 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - background: var(--contrast15)
+                - padding: 10px
+                - '--mdc-ripple-press-opacity': 0
+                - box-shadow: none
+                - height: 126px
+                - border-radius: 18px
+              img_cell:
+                - justify-self: start
+                - width: 24px
+                - margin: 10px
+                - padding-top: 40%
+              icon:
+                - width: 24px
+                - height: 24px
+                - color: var(--contrast0)
+              name:
+                - justify-self: start
+                - font-size: 13px
+                - margin: 10px
+                - color: var(--contrast0)
+                - font-family: Product Sans
+              custom_fields:
+                temp:
+                  - align-self: start
+                  - justify-self: end
+                  - font-size: 14px
+                  - font-weight: 500
+                  - margin: 2px 0px 10px 0px
+                  - color: |
+                      [[[
+                        var state = states['switch.sonoff_10009c7508_1'].state
+                       if(state == "unavailable")
+                        return `var(--contrast00)`;
+                      if(state == "off")
+                        return `var(--contrast00)`;
+                      else
+                        return `var(--contrast15)`;
+                      ]]]
+                  - font-family: Product Sans
+                  - background-color: |
+                      [[[
+                        var state = states['switch.sonoff_10009c7508_1'].state
+                       if(state == "unavailable")
+                        return `var(--contrast12)`;
+                       if(state == "off")
+                        return `var(--contrast12)`;
+                      else
+                        return `var(--contrast00)`;
+                      ]]]
+                  - box-shadow: |
+                      [[[
+                        var state = states['switch.sonoff_10009c7508_1'].state
+                       if(state == "unavailable")
+                        return `none`;
+                       if(state == "off")
+                        return `none`;
+                      else
+                        return `0px 0px 8px 1px var(--contrast00)`;
+                      ]]]
+                  - border-radius: |
+                      [[[
+                        var state = states['switch.sonoff_10009c7508_1'].state
+                       if(state == "unavailable")
+                        return `15px`;
+                       if(state == "off")
+                        return `15px`;
+                      else
+                        return `100px`;
+                      ]]]
+                  - padding: 16px
+            custom_fields:
+              temp: |
+                [[[
+                 var state = states['switch.sonoff_10009c7508_1'].state;
+                 if(state == "unavailable")
+                  return `<ha-icon
+                  icon="mdi:lightbulb-alert-outline"
+                  style="width: 20px; height: 20px; color: auto;">
+                  </ha-icon>`;
+                 if(state == "off")
+                  return `<ha-icon
+                  icon="mdi:lightbulb-off-outline"
+                  style="width: 20px; height: 20px; color: auto;">
+                  </ha-icon>`;
+                 else 
+                  return `<ha-icon
+                  icon="mdi:lightbulb-on"
+                  style="width: 20px; height: 20px; color: auto;">
+                  </ha-icon>
+                  `;
+                ]]]
+            card_mod:
+              style: |
+                ha-card:active {
+                  box-shadow: none;
+                  transform: scale(0.96);
+                  transition: 200ms !important;
+                  transform-origin: center;
+                  }
+        columns: 1
+      - square: false
+        type: grid
+        cards:
+          - type: custom:button-card
+            icon: mdi:umbrella-beach
+            name: Sottomarina
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/mare
+              haptic: light
+            styles:
+              grid:
+                - grid-template-areas: '"i temp" "n hum"'
+                - grid-template-columns: 1fr 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - background: var(--contrast0)
+                - padding: 10px
+                - '--mdc-ripple-press-opacity': 0
+                - box-shadow: none
+                - height: 126px
+                - border-radius: 18px
+              img_cell:
+                - justify-self: start
+                - width: 24px
+                - margin: 10px
+                - padding-top: 40%
+              icon:
+                - width: 24px
+                - height: 24px
+                - color: var(--contrast18)
+              name:
+                - justify-self: start
+                - font-size: 13px
+                - margin: 10px
+                - color: var(--contrast18)
+                - font-family: Product Sans
+              custom_fields:
+                temp:
+                  - align-self: start
+                  - justify-self: end
+                  - font-size: 14px
+                  - font-weight: 500
+                  - margin: 2px 0px 10px 0px
+                  - color: |
+                      [[[
+                        var state = states['light.luce_terrazzo_mare'].state
+                       if(state == "off")
+                        return `var(--contrast10)`;
+                      else
+                        return `var(--black)`;
+                      ]]]
+                  - font-family: Product Sans
+                  - background-color: |
+                      [[[
+                        var state = states['light.luce_terrazzo_mare'].state
+                       if(state == "off")
+                        return `var(--contrast00)`;
+                      else
+                        return `var(--yellow)`;
+                      ]]]
+                  - box-shadow: |
+                      [[[
+                        var state = states['light.luce_terrazzo_mare'].state
+                       if(state == "off")
+                        return `none`;
+                      else
+                        return `0px 0px 8px 1px var(--yellow)`;
+                      ]]]
+                  - border-radius: |
+                      [[[
+                        var state = states['light.luce_terrazzo_mare'].state
+                       if(state == "off")
+                        return `15px`;
+                      else
+                        return `100px`;
+                      ]]]
+                  - padding: 16px
+            custom_fields:
+              temp: |
+                [[[
+                 var state = states['light.luce_terrazzo_mare'].state;
+                 if(state == "off")
+                  return `<ha-icon
+                  icon="mdi:lightbulb-off-outline"
+                  style="width: 20px; height: 20px; color: auto;">
+                  </ha-icon>`;
+                 else 
+                  return `<ha-icon
+                  icon="mdi:lightbulb-on"
+                  style="width: 20px; height: 20px; color: auto;">
+                  </ha-icon>
+                  `;
+                ]]]
+            card_mod:
+              style: |
+                ha-card:active {
+                  box-shadow: none;
+                  transform: scale(0.96);
+                  transition: 200ms !important;
+                  transform-origin: center;
+                  }
+          - type: custom:button-card
+            name: AIUTO
+            show_name: false
+            icon: mdi:hospital
+            double_tap_action:
+              action: none
+            hold_action:
+              action: navigate
+              navigation_path: /trova-telefono
+              haptic: heavy
+            tap_action:
+              action: none
+            styles:
+              grid:
+                - grid-template-areas: '"i" "n" "slider"'
+                - grid-template-columns: 1fr
+                - grid-template-rows: 1fr min-content min-content
+              card:
+                - background: var(--red)
+                - '--mdc-ripple-press-opacity': 0
+                - height: 66px
+                - border-radius: 18px
+              img_cell:
+                - justify-self: center
+                - width: 54px
+              icon:
+                - width: 44px
+                - height: 44px
+                - color: var(--black)
+            card_mod:
+              style: |
+                ha-card:active {
+                  transform: scale(0.97);
+                  transition: 100ms !important;
+                  border-radius: 20px;
+                  transform-origin: center;
+                  }
+        columns: 1
+    columns: 2

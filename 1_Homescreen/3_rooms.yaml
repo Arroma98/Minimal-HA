@@ -1,0 +1,525 @@
+type: vertical-stack
+cards:
+  - type: custom:button-card
+    name: Casa
+    label: Ecco le stanze
+    show_label: true
+    styles:
+      card:
+        - background: none
+        - padding: 0px 12px
+        - margin-bottom: '-5px'
+        - margin-top: 15px
+        - '--mdc-ripple-press-opacity': 0
+      name:
+        - font-family: Product Sans
+        - justify-self: start
+        - font-size: 20px
+        - color: var(--contrast20)
+      label:
+        - font-family: Product Sans Light
+        - justify-self: start
+        - font-size: 16px
+        - color: var(--contrast10)
+  - square: false
+    type: grid
+    cards:
+      - type: custom:button-card
+        icon: mdi:pot-steam
+        name: Cucina
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/cucina
+          haptic: light
+        styles:
+          grid:
+            - grid-template-areas: '"i temp" "n hum"'
+            - grid-template-columns: 1fr 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - padding: 10px
+            - '--mdc-ripple-press-opacity': 0
+            - box-shadow: none
+            - border-radius: 18px
+            - height: 96px
+          img_cell:
+            - justify-self: start
+            - width: 24px
+            - margin: 10px
+          icon:
+            - width: 24px
+            - height: 24px
+            - color: var(--contrast15)
+          name:
+            - justify-self: start
+            - font-size: 14px
+            - margin: 10px
+            - color: var(--contrast15)
+            - font-family: Product Sans
+          custom_fields:
+            temp:
+              - align-self: start
+              - justify-self: end
+              - font-size: 14px
+              - font-weight: 500
+              - margin: 2px 0px 10px 0px
+              - color: |
+                  [[[
+                    var state = states['media_player.googlehome6209'].state
+                   if(state == "off")
+                    return `var(--contrast10)`;
+                  else
+                    return `var(--contrast00)`;
+                  ]]]
+              - font-family: Product Sans
+              - background-color: |
+                  [[[
+                    var state = states['media_player.googlehome6209'].state
+                   if(state == "off")
+                    return `var(--contrast00)`;
+                  else
+                    return `var(--contrast15)`;
+                  ]]]
+              - border-radius: 100px
+              - padding: 6px
+        custom_fields:
+          temp: |
+            [[[
+             var state = states['media_player.googlehome6209'].state;
+             if(state == "off")
+              return `<ha-icon
+              icon="cil:google-home-off"
+              style="width: 25px; height: 25px; color: auto;">
+              </ha-icon>`;
+             else 
+              return `<ha-icon
+              icon="cil:google-home-off"
+              style="width: 25px; height: 25px; color: auto;">
+              </ha-icon>
+              `;
+            ]]]
+        card_mod:
+          style: |
+            ha-card:active {
+              box-shadow: none;
+              transform: scale(0.96);
+              transition: 200ms !important;
+              transform-origin: center;
+              }
+      - type: custom:button-card
+        icon: mdi:sofa
+        name: Veranda
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/veranda
+          haptic: light
+        styles:
+          grid:
+            - grid-template-areas: '"i temp" "n hum"'
+            - grid-template-columns: 1fr 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - padding: 10px
+            - '--mdc-ripple-press-opacity': 0
+            - box-shadow: none
+            - border-radius: 18px
+            - height: 96px
+          img_cell:
+            - justify-self: start
+            - width: 24px
+            - margin: 10px
+          icon:
+            - width: 24px
+            - height: 24px
+            - color: var(--contrast15)
+          name:
+            - justify-self: start
+            - font-size: 14px
+            - margin: 10px
+            - color: var(--contrast15)
+            - font-family: Product Sans
+          custom_fields:
+            temp:
+              - align-self: start
+              - justify-self: end
+              - font-size: 14px
+              - font-weight: 500
+              - margin: 2px 0px 10px 0px
+              - color: |
+                  [[[
+                    var state = states['input_select.sosp_gest_auto_veranda'].state
+                   if(state == "00 Auto")
+                    return `var(--contrast10)`;
+                  else
+                    return `var(--contrast00)`;
+                  ]]]
+              - font-family: Product Sans
+              - background-color: |
+                  [[[
+                    var state = states['input_select.sosp_gest_auto_veranda'].state
+                   if(state == "00 Auto")
+                    return `var(--contrast00)`;
+                  else
+                    return `var(--contrast15)`;
+                  ]]]
+              - border-radius: 100px
+              - padding: 6px
+        custom_fields:
+          temp: |
+            [[[
+             var state = states['input_select.sosp_gest_auto_veranda'].state;
+             if(state == "00 Auto")
+              return `<ha-icon
+              icon="mdi:fire-off"
+              style="width: 25px; height: 25px; color: auto;">
+              </ha-icon>`;
+             else 
+              return `<ha-icon
+              icon="mdi:fire"
+              style="width: 25px; height: 25px; color: auto;">
+              </ha-icon>
+              `;
+            ]]]
+        card_mod:
+          style: |
+            ha-card:active {
+              box-shadow: none;
+              transform: scale(0.96);
+              transition: 200ms !important;
+              transform-origin: center;
+              }
+      - type: custom:button-card
+        icon: mdi:sofa
+        name: Soggiorno
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/soggiorno
+          haptic: light
+        styles:
+          grid:
+            - grid-template-areas: '"i temp" "n hum"'
+            - grid-template-columns: 1fr 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - padding: 10px
+            - '--mdc-ripple-press-opacity': 0
+            - box-shadow: none
+            - border-radius: 18px
+            - height: 96px
+          img_cell:
+            - justify-self: start
+            - width: 24px
+            - margin: 10px
+          icon:
+            - width: 24px
+            - height: 24px
+            - color: var(--contrast15)
+          name:
+            - justify-self: start
+            - font-size: 14px
+            - margin: 10px
+            - color: var(--contrast15)
+            - font-family: Product Sans
+          custom_fields:
+            temp:
+              - align-self: start
+              - justify-self: end
+              - font-size: 14px
+              - font-weight: 500
+              - margin: 2px 0px 10px 0px
+              - color: |
+                  [[[
+                    var state = states['media_player.soggiorno_2'].state
+                   if(state == "off")
+                    return `var(--contrast10)`;
+                  else
+                    return `var(--contrast00)`;
+                  ]]]
+              - font-family: Product Sans
+              - background-color: |
+                  [[[
+                    var state = states['media_player.soggiorno_2'].state
+                   if(state == "off")
+                    return `var(--contrast00)`;
+                  else
+                    return `var(--contrast15)`;
+                  ]]]
+              - border-radius: 100px
+              - padding: 6px
+        custom_fields:
+          temp: |
+            [[[
+             var state = states['media_player.soggiorno_2'].state;
+             if(state == "off")
+              return `<ha-icon
+              icon="mdi:television-off"
+              style="width: 25px; height: 25px; color: auto;">
+              </ha-icon>`;
+             else 
+              return `<ha-icon
+              icon="mdi:television"
+              style="width: 25px; height: 25px; color: auto;">
+              </ha-icon>
+              `;
+            ]]]
+        card_mod:
+          style: |
+            ha-card:active {
+              box-shadow: none;
+              transform: scale(0.96);
+              transition: 200ms !important;
+              transform-origin: center;
+              }
+      - type: custom:button-card
+        icon: mdi:bed
+        name: Camere
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/notte
+          haptic: light
+        styles:
+          grid:
+            - grid-template-areas: '"i temp" "n hum"'
+            - grid-template-columns: 1fr 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - padding: 10px
+            - '--mdc-ripple-press-opacity': 0
+            - box-shadow: none
+            - border-radius: 18px
+            - height: 96px
+          img_cell:
+            - justify-self: start
+            - width: 24px
+            - margin: 10px
+          icon:
+            - width: 24px
+            - height: 24px
+            - color: var(--contrast15)
+          name:
+            - justify-self: start
+            - font-size: 14px
+            - margin: 10px
+            - color: var(--contrast15)
+            - font-family: Product Sans
+          custom_fields:
+            temp:
+              - align-self: start
+              - justify-self: end
+              - font-size: 14px
+              - font-weight: 500
+              - margin: 2px 0px 10px 0px
+              - color: |
+                  [[[
+                    var state = states['climate.mitsubishi_levante'].state
+                   if(state == "heat")
+                    return `var(--contrast00)`;
+                  else
+                    return `var(--contrast10)`;
+                  ]]]
+              - font-family: Product Sans
+              - background-color: |
+                  [[[
+                    var state = states['climate.mitsubishi_levante'].state
+                   if(state == "heat")
+                    return `var(--contrast15)`;
+                  else
+                    return `var(--contrast00)`;
+                  ]]]
+              - border-radius: 100px
+              - padding: 6px
+        custom_fields:
+          temp: |
+            [[[
+             var state = states['climate.mitsubishi_levante'].state;
+             if(state == "heat")
+              return `<ha-icon
+              icon="mdi:fan"
+              style="width: 25px; height: 25px; color: auto;">
+              </ha-icon>`;
+             else 
+              return `<ha-icon
+              icon="mdi:fan-off"
+              style="width: 25px; height: 25px; color: auto;">
+              </ha-icon>
+              `;
+            ]]]
+        card_mod:
+          style: |
+            ha-card:active {
+              box-shadow: none;
+              transform: scale(0.96);
+              transition: 200ms !important;
+              transform-origin: center;
+              }
+      - type: custom:button-card
+        icon: mdi:spray
+        name: Caldaia
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/lavanderia
+          haptic: light
+        styles:
+          grid:
+            - grid-template-areas: '"i temp" "n hum"'
+            - grid-template-columns: 1fr 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - padding: 10px
+            - '--mdc-ripple-press-opacity': 0
+            - box-shadow: none
+            - border-radius: 18px
+            - height: 96px
+          img_cell:
+            - justify-self: start
+            - width: 24px
+            - margin: 10px
+          icon:
+            - width: 24px
+            - height: 24px
+            - color: var(--contrast15)
+          name:
+            - justify-self: start
+            - font-size: 14px
+            - margin: 10px
+            - color: var(--contrast15)
+            - font-family: Product Sans
+          custom_fields:
+            temp:
+              - align-self: start
+              - justify-self: end
+              - font-size: 14px
+              - font-weight: 500
+              - margin: 2px 0px 10px 0px
+              - color: |
+                  [[[
+                    var state = states['switch.asciugatrice_pow'].state
+                   if(state == "off")
+                    return `var(--contrast10)`;
+                  else
+                    return `var(--contrast00)`;
+                  ]]]
+              - font-family: Product Sans
+              - background-color: |
+                  [[[
+                    var state = states['switch.asciugatrice_pow'].state
+                   if(state == "off")
+                    return `var(--contrast00)`;
+                  else
+                    return `var(--contrast15)`;
+                  ]]]
+              - border-radius: 100px
+              - padding: 6px
+        custom_fields:
+          temp: |
+            [[[
+             var state = states['switch.asciugatrice_pow'].state;
+             if(state == "off")
+              return `<ha-icon
+              icon="mdi:tumble-dryer-off"
+              style="width: 25px; height: 25px; color: auto;">
+              </ha-icon>`;
+             else 
+              return `<ha-icon
+              icon="mdi:tumble-dryer"
+              style="width: 25px; height: 25px; color: auto;">
+              </ha-icon>
+              `;
+            ]]]
+        card_mod:
+          style: |
+            ha-card:active {
+              box-shadow: none;
+              transform: scale(0.96);
+              transition: 200ms !important;
+              transform-origin: center;
+              }
+      - type: custom:button-card
+        icon: mdi:car
+        name: Esterno
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/esterno
+          haptic: light
+        styles:
+          grid:
+            - grid-template-areas: '"i temp" "n hum"'
+            - grid-template-columns: 1fr 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - padding: 10px
+            - '--mdc-ripple-press-opacity': 0
+            - box-shadow: none
+            - border-radius: 18px
+            - height: 96px
+          img_cell:
+            - justify-self: start
+            - width: 24px
+            - margin: 10px
+          icon:
+            - width: 24px
+            - height: 24px
+            - color: var(--contrast15)
+          name:
+            - justify-self: start
+            - font-size: 14px
+            - margin: 10px
+            - color: var(--contrast15)
+            - font-family: Product Sans
+          custom_fields:
+            temp:
+              - align-self: start
+              - justify-self: end
+              - font-size: 14px
+              - font-weight: 500
+              - margin: 2px 0px 10px 0px
+              - color: |
+                  [[[
+                    var state = states['switch.luci_vialetto'].state
+                   if(state == "off")
+                    return `var(--contrast10)`;
+                  else
+                    return `var(--contrast00)`;
+                  ]]]
+              - font-family: Product Sans
+              - background-color: |
+                  [[[
+                    var state = states['switch.luci_vialetto'].state
+                   if(state == "off")
+                    return `var(--contrast00)`;
+                  else
+                    return `var(--contrast15)`;
+                  ]]]
+              - border-radius: 100px
+              - padding: 6px
+        custom_fields:
+          temp: |
+            [[[
+             var state = states['switch.luci_vialetto'].state;
+             if(state == "off")
+              return `<ha-icon
+              icon="mdi:lightbulb-off-outline"
+              style="width: 25px; height: 25px; color: auto;">
+              </ha-icon>`;
+             else 
+              return `<ha-icon
+              icon="mdi:lightbulb-on"
+              style="width: 25px; height: 25px; color: auto;">
+              </ha-icon>
+              `;
+            ]]]
+        card_mod:
+          style: |
+            ha-card:active {
+              box-shadow: none;
+              transform: scale(0.96);
+              transition: 200ms !important;
+              transform-origin: center;
+              }
+    columns: 2

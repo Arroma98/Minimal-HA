@@ -1,0 +1,46 @@
+type: custom:layout-card
+layout_type: custom:grid-layout
+cards:
+  - type: custom:button-card
+    name: Energia
+    label: Ecco i consumi
+    show_label: true
+    styles:
+      card:
+        - background: none
+        - padding: 0px 12px
+        - margin-bottom: 0px
+        - '--mdc-ripple-press-opacity': 0
+      name:
+        - font-family: Product Sans
+        - justify-self: start
+        - font-size: 20px
+        - color: var(--contrast20)
+      label:
+        - font-family: Product Sans Light
+        - justify-self: start
+        - font-size: 16px
+        - color: var(--contrast10)
+  - type: custom:mushroom-chips-card
+    chips:
+      - type: template
+        tap_action:
+          action: navigate
+          navigation_path: /energy
+        hold_action:
+          action: none
+        double_tap_action:
+          action: none
+        icon: mdi:lightning-bolt
+        icon_color: ''
+    alignment: end
+    card_mod:
+      style: |
+        ha-card {
+          margin-top: 5px;
+          }
+layout:
+  grid-template-columns: auto 15%
+  grid-template-rows: 1
+  max_cols: 2
+  margin: 0px

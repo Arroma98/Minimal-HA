@@ -1,0 +1,308 @@
+type: vertical-stack
+cards:
+  - type: custom:button-card
+    name: Green
+    label: Quanto abbiamo salvato l'ambiente
+    show_label: true
+    styles:
+      card:
+        - background: none
+        - padding: 0px 12px
+        - margin-bottom: '-10px'
+        - '--mdc-ripple-press-opacity': 0
+        - margin-top: 15px
+      name:
+        - font-family: Product Sans
+        - justify-self: start
+        - font-size: 20px
+        - color: var(--contrast20)
+      label:
+        - font-family: Product Sans Light
+        - justify-self: start
+        - font-size: 16px
+        - color: var(--contrast10)
+  - square: false
+    type: grid
+    cards:
+      - type: custom:button-card
+        card_mod:
+          style: |
+            ha-card {
+              transition: 300ms !important;
+              }
+        icon: mdi:molecule-co2
+        name: Evitata
+        show_state: true
+        entity: sensor.co2_evitata_tot
+        tap_action:
+          action: more-info
+        state_display: |
+          [[[
+            return Math.round(Number(entity.state)).toFixed(0) +' kg';
+          ]]]
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "slider"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast15)
+            - padding: 16px
+            - '--mdc-ripple-press-opacity': 0
+          img_cell:
+            - justify-self: start
+            - width: 24px
+          icon:
+            - width: 24px
+            - height: 24px
+            - color: var(--contrast0)
+          name:
+            - justify-self: start
+            - font-size: 12px
+            - margin: 4px 0 12px 0
+            - color: var(--contrast0)
+            - font-family: Product Sans
+          state:
+            - color: var(--contrast0)
+            - font-family: Product Sans Black
+      - type: custom:button-card
+        card_mod:
+          style: |
+            ha-card {
+              transition: 300ms !important;
+              }
+        icon: mdi:transmission-tower-import
+        name: Ceduta
+        show_name: false
+        show_state: true
+        entity: sensor.2_fotovoltaico_channel_2_energy_returned
+        tap_action:
+          action: more-info
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "slider"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - padding: 16px
+            - '--mdc-ripple-press-opacity': 0
+            - height: 100%
+          img_cell:
+            - justify-self: start
+            - width: 24px
+          icon:
+            - width: 24px
+            - height: 24px
+            - color: var(--contrast15)
+          name:
+            - justify-self: start
+            - font-size: 14px
+            - margin: 4px 0 12px 0
+            - color: var(--contrast15)
+          state:
+            - font-family: Product Sans Black
+        state_display: |
+          [[[
+            return Math.round(Number(entity.state)).toFixed(0) +' kWh';
+          ]]]
+    columns: 2
+  - type: custom:button-card
+    name: Da fossili
+    label: Quanto lo stiamo danneggiando
+    show_label: true
+    styles:
+      card:
+        - background: none
+        - padding: 0px 12px
+        - margin-bottom: '-10px'
+        - margin-top: 10px
+        - '--mdc-ripple-press-opacity': 0
+      name:
+        - font-family: Product Sans
+        - justify-self: start
+        - font-size: 20px
+        - color: var(--contrast20)
+      label:
+        - font-family: Product Sans Light
+        - justify-self: start
+        - font-size: 16px
+        - color: var(--contrast10)
+  - square: false
+    type: grid
+    cards:
+      - type: custom:button-card
+        card_mod:
+          style: |
+            ha-card {
+              transition: 300ms !important;
+              }
+        icon: mdi:molecule-co2
+        name: Emessa
+        show_state: true
+        entity: sensor.co2_emessa_tot
+        tap_action:
+          action: more-info
+        state_display: |
+          [[[
+            return Math.round(Number(entity.state)).toFixed(0) +' kg';
+          ]]]
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "slider"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast15)
+            - padding: 16px
+            - '--mdc-ripple-press-opacity': 0
+          img_cell:
+            - justify-self: start
+            - width: 24px
+          icon:
+            - width: 24px
+            - height: 24px
+            - color: var(--contrast0)
+          name:
+            - justify-self: start
+            - font-size: 12px
+            - margin: 4px 0 12px 0
+            - color: var(--contrast0)
+          state:
+            - color: var(--contrast0)
+            - font-family: Product Sans Black
+      - type: custom:button-card
+        card_mod:
+          style: |
+            ha-card {
+              transition: 300ms !important;
+              }
+        icon: mdi:transmission-tower-export
+        name: Fossile
+        show_state: true
+        entity: sensor.acquisto_da_fossile_tot
+        tap_action:
+          action: more-info
+        state_display: |
+          [[[
+            return Math.round(Number(entity.state)).toFixed(0) +' kWh';
+          ]]]
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "slider"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - padding: 16px
+            - '--mdc-ripple-press-opacity': 0
+          img_cell:
+            - justify-self: start
+            - width: 24px
+          icon:
+            - width: 24px
+            - height: 24px
+            - color: var(--contrast15)
+          name:
+            - justify-self: start
+            - font-size: 12px
+            - margin: 4px 0 12px 0
+            - color: var(--contrast15)
+          state:
+            - color: var(--contrast15)
+            - font-family: Product Sans Black
+    columns: 2
+  - type: custom:button-card
+    name: In tempo reale
+    label: Tutto sotto controllo
+    show_label: true
+    styles:
+      card:
+        - background: none
+        - padding: 0px 12px
+        - margin-bottom: 0px
+        - '--mdc-ripple-press-opacity': 0
+        - margin-top: 15px
+      name:
+        - font-family: Product Sans
+        - justify-self: start
+        - font-size: 20px
+        - color: var(--contrast20)
+      label:
+        - font-family: Product Sans Light
+        - justify-self: start
+        - font-size: 16px
+        - color: var(--contrast10)
+  - type: custom:power-flow-card-plus
+    entities:
+      fossil_fuel_percentage:
+        entity: sensor.co2_signal_grid_fossil_fuel_percentage
+        icon: mdi:barrel
+        color_icon: true
+        display_zero: true
+        name: Fossili
+        state_type: power
+        color: brown
+      grid:
+        icon: mdi:ab-testing
+        name: Rete
+        entity: sensor.2_fotovoltaico_channel_2_power
+      solar:
+        icon: mdi:solar-panel-large
+        entity: sensor.2_fotovoltaico_channel_1_power
+      individual1:
+        entity: sensor.consumo_condizionatori
+        icon: mdi:fan
+        color: teal
+        name: Clima
+        display_zero: true
+        color_icon: false
+      individual2:
+        entity: sensor.consumo_elettrodomestici
+        name: Lavanderia
+        display_zero: true
+        color_icon: false
+        color: indigo
+        icon: mdi:washing-machine
+    w_decimals: 0
+    kw_decimals: 2
+    min_flow_rate: 0.9
+    max_flow_rate: 6
+    watt_threshold: 10000
+    clickable_entities: true
+    card_mod:
+      style: |
+        ha-card {
+         background-color: transparent;
+         box-shadow: none;
+         }
+  - type: custom:apexcharts-card
+    header:
+      show: false
+      show_states: true
+      colorize_states: true
+    chart_type: pie
+    series:
+      - entity: sensor.tasmota_energy_power
+        name: Lavatrice
+      - entity: sensor.manutenzione_batteria_ups_switch_0_power
+        name: UPS
+      - entity: sensor.asciugatrice_pow_energy_power
+        name: Asciugatrice
+      - entity: sensor.ponente_pow_energy_power
+        name: Ponente
+      - entity: sensor.levante_pow_energy_power
+        name: Levante
+      - entity: sensor.altro_consumi
+        name: Altro
+        unit: W
+        color: '#666c80'
+      - entity: sensor.shenron_dimmer_power
+        transform: return x * 1.05
+        name: Rettili
+    card_mod:
+      style: |
+        ha-card {
+          background-color: transparent;
+          box-shadow: none;
+          }

@@ -1,0 +1,509 @@
+type: vertical-stack
+cards:
+  - type: custom:gap-card
+    height: 20
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        name: Controlla
+        label: Smigol
+        show_label: true
+        styles:
+          card:
+            - background: none
+            - padding: 0px 12px
+            - margin-bottom: 0px
+            - '--mdc-ripple-press-opacity': 0
+            - margin-left: '-5px'
+          name:
+            - font-family: Product Sans
+            - justify-self: start
+            - font-size: 16px
+            - color: var(--contrast10)
+          label:
+            - font-family: Product Sans
+            - justify-self: start
+            - font-size: 20px
+            - color: var(--contrast20)
+            - font-weight: bold
+      - type: custom:button-card
+        name: ' '
+        show_icon: false
+        show_state: false
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "slider"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background-image: url("/local/smigoll.jpg")
+            - background-size: 150% 100%
+            - '--mdc-ripple-press-opacity': 0
+            - border-radius: 100px
+            - height: 40px
+            - width: 40px
+        card_mod:
+          style: |
+            ha-card {
+              transition: 500ms !important;
+              }
+  - type: custom:button-card
+    entity: calendar.piante_2
+    icon: mdi:help
+    name: Non connesso
+    show_label: false
+    state:
+      - value: 'on'
+        name: '[[[ return (states[''calendar.piante_2''].attributes.message) ]]]'
+        icon: mdi:food-apple
+        styles:
+          card:
+            - background: var(--contrast15)
+          icon:
+            - color: var(--contrast0)
+            - height: 100px
+          name:
+            - color: var(--contrast0)
+            - font-size: 24px
+            - font-weight: bold
+          label:
+            - color: var(--contrast0)
+      - value: 'off'
+        name: Sazia :)
+        icon: mdi:fruit-cherries-off
+        styles:
+          card:
+            - background: var(--contrast0)
+          icon:
+            - color: var(--contrast15)
+            - height: 100px
+          name:
+            - color: var(--contrast15)
+            - font-size: 24px
+          label:
+            - color: var(--contrast15)
+    styles:
+      grid:
+        - grid-template-areas: '"i" "n" "l"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      card:
+        - background: var(--contrast0)
+        - padding: 8px
+        - '--mdc-ripple-press-opacity': 0
+        - box-shadow: none
+        - height: 100px
+        - border-radius: 18px
+      img_cell:
+        - justify-self: start
+        - width: 24px
+        - margin: 10px
+        - margin-top: 20px
+      icon:
+        - width: 24px
+        - height: 24px
+        - color: var(--contrast15)
+      name:
+        - justify-self: start
+        - font-size: 14px
+        - padding: 8px 0px 8px 8px
+        - color: var(--contrast15)
+        - font-family: Product Sans
+    tap_action:
+      action: none
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - type: custom:stack-in-card
+        mode: vertical
+        keep:
+          margin: true
+          border_radius: true
+          background: true
+          outer_padding: false
+        card_mod:
+          style: |
+            ha-card {
+              border-radius: 18px;
+              background-color: var(--contrast0);
+              }
+        cards:
+          - type: custom:button-card
+            entity: sensor.temperatura_media_teca
+            name: '[[[return states["sensor.temperatura_media_teca"].state]]]'
+            styles:
+              grid:
+                - grid-template-areas: '"n eenheid" "l l"'
+                - grid-template-columns: min-content min-content
+              name:
+                - font-size: 28px
+                - color: var(--contrast15)
+                - font-weight: bold
+              card:
+                - height: 80px
+                - border-radius: 18px
+                - padding: 0px 0 6px 6px
+                - box-sizing: border-box
+                - background: none
+                - box-shadow: none
+                - margin-bottom: '-10px'
+                - '--mdc-ripple-press-opacity': 0
+              label:
+                - justify-self: start
+                - font-size: 13px
+                - color: var(--contrast15)
+                - margin-bottom: 0px
+              custom_fields:
+                eenheid:
+                  - font-size: 12px
+                  - margin-bottom: '-10px'
+                  - padding-left: 2px
+                  - margin-right: 100px
+                  - color: var(--contrast15)
+            label: Temperatura
+            custom_fields:
+              eenheid: '&nbsp;°C'
+            show_label: true
+            tap_action:
+              action: more-info
+              haptic: light
+          - type: custom:bar-card
+            severity:
+              - color: var(--contrast15)
+                from: 0
+                to: 26
+              - color: var(--red)
+                from: 26
+                to: 35
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgb(0,0,0,0);
+                  box-shadow: none;
+                  --primary-text-color: var(--contrast15);
+                  font-family: Product Sans;
+                  margin-left: 0px;
+                  margin-right: 0px;
+                  margin-top: 0px;
+                  margin-bottom: 0px;
+                  font-weight: bold;
+                  }
+                bar-card-name {
+                  margin-left: 0px;
+                }
+                bar-card-value {
+                  margin-right: 0px;
+                  font-family: Product Sans Medium ;
+                }
+                bar-card-backgroundbar {
+                background: var(--contrast18); 
+                }
+                bar-card-card {
+                  margin-top: -15px;
+                  margin-left: -10px;
+                  margin-right: 0px;
+                  margin-bottom: 0px;
+                }
+            entities:
+              - entity: sensor.temperatura_media_teca
+                name: Consumo
+                icon: none
+                min: 15
+                max: 30
+                direction: right
+                height: 20px
+                positions:
+                  icon: 'off'
+                  name: 'off'
+                  value: 'off'
+                  indicator: 'off'
+                unit_of_measurement: W
+                decimal: 0
+            tap_action:
+              action: more-info
+              haptic: light
+      - type: custom:stack-in-card
+        mode: vertical
+        keep:
+          margin: true
+          border_radius: true
+          background: true
+          outer_padding: false
+        card_mod:
+          style: |
+            ha-card {
+              border-radius: 18px;
+              background-color: var(--contrast0);
+              }
+        cards:
+          - type: custom:button-card
+            entity: sensor.umidita_media_teca
+            name: '[[[return states["sensor.umidita_media_teca"].state]]]'
+            styles:
+              grid:
+                - grid-template-areas: '"n eenheid" "l l"'
+                - grid-template-columns: min-content min-content
+              name:
+                - font-size: 28px
+                - color: var(--contrast15)
+                - font-weight: bold
+              card:
+                - height: 80px
+                - border-radius: 18px
+                - padding: 0px 0 6px 6px
+                - box-sizing: border-box
+                - background: none
+                - box-shadow: none
+                - margin-bottom: '-10px'
+                - '--mdc-ripple-press-opacity': 0
+              label:
+                - justify-self: start
+                - font-size: 13px
+                - color: var(--contrast15)
+                - margin-bottom: 0px
+              custom_fields:
+                eenheid:
+                  - font-size: 12px
+                  - margin-bottom: '-10px'
+                  - padding-left: 2px
+                  - margin-right: 100px
+                  - color: var(--contrast15)
+            label: Umidità
+            custom_fields:
+              eenheid: '&nbsp;%'
+            show_label: true
+            tap_action:
+              action: more-info
+              haptic: light
+          - type: custom:bar-card
+            severity:
+              - color: var(--red)
+                from: 0
+                to: 50
+              - color: var(--contrast15)
+                from: 50
+                to: 75
+              - color: var(--red)
+                from: 75
+                to: 100
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgb(0,0,0,0);
+                  box-shadow: none;
+                  --primary-text-color: var(--contrast15);
+                  font-family: Product Sans;
+                  margin-left: 0px;
+                  margin-right: 0px;
+                  margin-top: 0px;
+                  margin-bottom: 0px;
+                  font-weight: bold;
+                  }
+                bar-card-name {
+                  margin-left: 0px;
+                }
+                bar-card-value {
+                  margin-right: 0px;
+                  font-family: Product Sans Medium ;
+                }
+                bar-card-backgroundbar {
+                background: var(--contrast18); 
+                }
+                bar-card-card {
+                  margin-top: -15px;
+                  margin-left: -10px;
+                  margin-right: 0px;
+                  margin-bottom: 0px;
+                }
+            entities:
+              - entity: sensor.umidita_media_teca
+                name: Consumo
+                icon: none
+                min: 0
+                max: 100
+                direction: right
+                height: 20px
+                positions:
+                  icon: 'off'
+                  name: 'off'
+                  value: 'off'
+                  indicator: 'off'
+                unit_of_measurement: W
+                decimal: 0
+            tap_action:
+              action: more-info
+              haptic: light
+      - type: custom:stack-in-card
+        mode: vertical
+        keep:
+          margin: true
+          border_radius: true
+          background: true
+          outer_padding: false
+        card_mod:
+          style: |
+            ha-card {
+              border-radius: 18px;
+              background-color: var(--contrast0);
+              }
+        cards:
+          - type: custom:button-card
+            entity: sensor.teca_rischio_muffa
+            name: '[[[return states["sensor.teca_rischio_muffa"].state]]]'
+            styles:
+              grid:
+                - grid-template-areas: '"n eenheid" "l l"'
+                - grid-template-columns: min-content min-content
+              name:
+                - font-size: 28px
+                - color: var(--contrast15)
+                - font-weight: bold
+              card:
+                - height: 80px
+                - border-radius: 18px
+                - padding: 0px 0 6px 6px
+                - box-sizing: border-box
+                - background: none
+                - box-shadow: none
+                - margin-bottom: '-10px'
+                - '--mdc-ripple-press-opacity': 0
+              label:
+                - justify-self: start
+                - font-size: 13px
+                - color: var(--contrast15)
+                - margin-bottom: 0px
+              custom_fields:
+                eenheid:
+                  - font-size: 12px
+                  - margin-bottom: '-10px'
+                  - padding-left: 2px
+                  - margin-right: 100px
+                  - color: var(--contrast15)
+            label: Rischio muffa
+            custom_fields:
+              eenheid: '&nbsp;%'
+            show_label: true
+            tap_action:
+              action: more-info
+              haptic: light
+          - type: custom:bar-card
+            severity:
+              - color: var(--contrast15)
+                from: 0
+                to: 70
+              - color: var(--red)
+                from: 70
+                to: 100
+            card_mod:
+              style: |
+                ha-card {
+                  background: rgb(0,0,0,0);
+                  box-shadow: none;
+                  --primary-text-color: var(--contrast15);
+                  font-family: Product Sans;
+                  margin-left: 0px;
+                  margin-right: 0px;
+                  margin-top: 0px;
+                  margin-bottom: 0px;
+                  font-weight: bold;
+                  }
+                bar-card-name {
+                  margin-left: 0px;
+                }
+                bar-card-value {
+                  margin-right: 0px;
+                  font-family: Product Sans Medium ;
+                }
+                bar-card-backgroundbar {
+                background: var(--contrast18); 
+                }
+                bar-card-card {
+                  margin-top: -15px;
+                  margin-left: -10px;
+                  margin-right: 0px;
+                  margin-bottom: 0px;
+                }
+            entities:
+              - entity: sensor.teca_rischio_muffa
+                name: Consumo
+                icon: none
+                min: 0
+                max: 100
+                direction: right
+                height: 20px
+                positions:
+                  icon: 'off'
+                  name: 'off'
+                  value: 'off'
+                  indicator: 'off'
+                unit_of_measurement: W
+                decimal: 0
+            tap_action:
+              action: more-info
+              haptic: light
+      - type: custom:button-card
+        entity: switch.luce_veranda
+        icon: mdi:lightbulb-off-outline
+        show_label: true
+        label: Non disponibili
+        name: Luci
+        state:
+          - value: 'on'
+            icon: mdi:lightbulb-on
+            label: Accese
+            styles:
+              card:
+                - background: var(--contrast15)
+                - box-shadow: none
+              icon:
+                - color: var(--contrast0)
+              name:
+                - color: var(--contrast0)
+              label:
+                - color: var(--contrast0)
+                - font-family: Product Sans Black
+                - font-weight: bold
+          - value: 'off'
+            label: Spente
+        styles:
+          grid:
+            - grid-template-areas: '"i" "n" "l"'
+            - grid-template-columns: 1fr
+            - grid-template-rows: 1fr min-content min-content
+          card:
+            - background: var(--contrast0)
+            - padding: 8px
+            - '--mdc-ripple-press-opacity': 0
+            - border-radius: 18px
+            - height: 100%
+          img_cell:
+            - justify-self: start
+            - width: 22px
+            - margin: 10px
+          icon:
+            - width: 22px
+            - height: 22px
+            - color: var(--contrast15)
+          name:
+            - justify-self: start
+            - font-size: 14px
+            - padding: 8px 0px 0px 8px
+            - color: var(--contrast15)
+            - font-family: Product Sans
+          label:
+            - justify-self: start
+            - font-size: 18px
+            - margin-left: 8px
+            - margin-bottom: 8px
+            - color: var(--contrast15)
+        tap_action:
+          action: none
+        hold_action:
+          haptic: heavy
+          action: toggle
+        card_mod:
+          style: |
+            ha-card:active {
+              transition: 300ms !important;
+              }

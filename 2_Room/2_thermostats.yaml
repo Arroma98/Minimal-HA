@@ -1,0 +1,212 @@
+type: vertical-stack
+cards:
+  - type: custom:button-card
+    entity: climate.termostato_soggiorno
+    name: Termostato
+    show_icon: false
+    tap_action:
+      haptic: light
+      action: more-info
+    styles:
+      card:
+        - border-radius: 18px
+        - border-style: none
+        - background-color: var(--contrast0)
+      grid:
+        - grid-template-areas: '"icon_cells" "n" "button"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      custom_fields:
+        icon_cells:
+          - justify-self: start
+          - margin-top: 12px
+          - margin-left: 15px
+      name:
+        - font-size: 90%
+        - font-weight: bold
+        - justify-self: start
+        - margin-top: 6px
+        - margin-left: 15px
+    state:
+      - value: heat
+        styles:
+          card:
+            - background-color: var(--contrast15)
+            - color: var(--contrast0)
+    custom_fields:
+      icon_cells: |
+        [[[
+          return `<ha-icon
+            icon="mdi:thermostat"
+            style="width: 25px; height: 25px; color: auto;">
+           </ha-icon> 
+           `
+        ]]]
+      button:
+        card:
+          type: custom:button-card
+          entity: climate.termostato_soggiorno
+          show_icon: false
+          show_name: false
+          styles:
+            card:
+              - border-style: none
+              - margin-top: '-4%'
+              - margin-bottom: '-5%'
+              - background-color: transparent
+            grid:
+              - grid-template-areas: '"state icon_cells"'
+              - grid-template-columns: min-content 1fr
+              - grid-template-rows: min-content
+            custom_fields:
+              state:
+                - justify-self: start
+                - align-self: middle
+                - font-size: 12px
+                - filter: opacity(50%)
+                - margin-left: 15px
+                - margin-top: 1.6px
+                - color: |
+                    [[[
+                     var state = states['climate.termostato_soggiorno'].state
+                     if(state == "heat")
+                      return `var(--contrast0)`;
+                     else 
+                      return `var(--contrast15)`;
+                    ]]]
+              icon_cells:
+                - justify-self: end
+                - align-self: start
+                - margin-right: 15px
+                - width: 45px
+          custom_fields:
+            icon_cells: |
+              [[[
+               var state = states['climate.termostato_soggiorno'].state;
+               if(state == "heat")
+                return `<ha-icon
+                icon="mdi:toggle-switch"
+                style="color: var(--contrast0);">
+                </ha-icon>`;
+               else 
+                return `<ha-icon
+                icon="mdi:toggle-switch-off"
+                style="color: auto;">
+                </ha-icon>
+                `;
+              ]]]
+            state: |
+              [[[
+                var state = states['climate.termostato_soggiorno'].state
+               if(state == "heat")
+                return `<span>Riscaldando verso </span>`+ (states['climate.termostato_soggiorno'].attributes.temperature) + ' °C';
+               if(state == "auto")
+                return `<span>In automatico</span>`;
+               else 
+                return `<span>Spento</span>`;
+              ]]]
+  - type: custom:button-card
+    entity: climate.mitsubishi_ponente
+    name: Condizionatore
+    show_icon: false
+    tap_action:
+      haptic: light
+      action: more-info
+    styles:
+      card:
+        - border-radius: 18px
+        - border-style: none
+        - background-color: var(--contrast0)
+      grid:
+        - grid-template-areas: '"icon_cells" "n" "button"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      custom_fields:
+        icon_cells:
+          - justify-self: start
+          - margin-top: 12px
+          - margin-left: 15px
+      name:
+        - font-size: 90%
+        - font-weight: bold
+        - justify-self: start
+        - margin-top: 6px
+        - margin-left: 15px
+    state:
+      - value: heat
+        styles:
+          card:
+            - background-color: var(--contrast15)
+            - color: var(--contrast0)
+    custom_fields:
+      icon_cells: |
+        [[[
+          return `<ha-icon
+            icon="mdi:fan"
+            style="width: 25px; height: 25px; color: auto;">
+           </ha-icon> 
+           `
+        ]]]
+      button:
+        card:
+          type: custom:button-card
+          entity: climate.mitsubishi_ponente
+          show_icon: false
+          show_name: false
+          styles:
+            card:
+              - border-style: none
+              - margin-top: '-4%'
+              - margin-bottom: '-5%'
+              - background-color: transparent
+            grid:
+              - grid-template-areas: '"state icon_cells"'
+              - grid-template-columns: min-content 1fr
+              - grid-template-rows: min-content
+            custom_fields:
+              state:
+                - justify-self: start
+                - align-self: middle
+                - font-size: 12px
+                - filter: opacity(50%)
+                - margin-left: 15px
+                - margin-top: 1.6px
+                - color: |
+                    [[[
+                     var state = states['climate.mitsubishi_ponente'].state
+                     if(state == "heat")
+                      return `var(--contrast0)`;
+                     else 
+                      return `var(--contrast15)`;
+                    ]]]
+              icon_cells:
+                - justify-self: end
+                - align-self: start
+                - margin-right: 15px
+                - width: 45px
+          custom_fields:
+            icon_cells: |
+              [[[
+               var state = states['climate.mitsubishi_ponente'].state;
+               if(state == "heat")
+                return `<ha-icon
+                icon="mdi:toggle-switch"
+                style="color: var(--contrast0);">
+                </ha-icon>`;
+               else 
+                return `<ha-icon
+                icon="mdi:toggle-switch-off"
+                style="color: auto;">
+                </ha-icon>
+                `;
+              ]]]
+            state: |
+              [[[
+                var state = states['climate.mitsubishi_ponente'].state
+               if(state == "heat")
+                return `<span>Riscaldando verso </span>`+ (states['climate.mitsubishi_ponente'].attributes.temperature) + ' °C';
+               if(state == "auto")
+                return `<span>In automatico</span>`;
+               else 
+                return `<span>Spento</span>`;
+              ]]]

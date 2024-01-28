@@ -1,0 +1,78 @@
+type: custom:button-card
+entity: switch.cancello
+icon: mdi:gate-alert
+name: Cancello(?)
+show_label: false
+aspect_ratio: 1/0.5
+state:
+  - value: 'on'
+    name: Aperto!
+    icon: mdi:gate-open
+    styles:
+      card:
+        - background: var(--yellow)
+        - border-radius: 5px
+        - transform: scale(1.05)
+      icon:
+        - color: var(--black)
+        - height: 100px
+      name:
+        - color: var(--black)
+        - font-size: 18px
+        - font-family: Product Sans Black
+  - value: 'off'
+    name: Cancello
+    icon: mdi:gate
+    styles:
+      card:
+        - background: var(--contrast0)
+      icon:
+        - color: var(--contrast15)
+        - height: 100px
+      name:
+        - color: var(--contrast15)
+        - font-size: 16px
+      label:
+        - color: var(--contrast15)
+styles:
+  grid:
+    - grid-template-areas: '"i" "n" "l"'
+    - grid-template-columns: 1fr
+    - grid-template-rows: 1fr min-content min-content
+  card:
+    - background: var(--red-tint)
+    - padding: 8px
+    - '--mdc-ripple-press-opacity': 0
+    - box-shadow: none
+    - height: 100%
+    - border-radius: 18px
+  img_cell:
+    - justify-self: start
+    - width: 24px
+    - margin: 10px
+  icon:
+    - width: 24px
+    - height: 24px
+    - color: var(--red)
+  name:
+    - justify-self: start
+    - font-size: 14px
+    - padding: 10px 0px 8px 10px
+    - color: var(--red)
+    - font-family: Product Sans
+  label:
+    - justify-self: start
+    - font-size: 12px
+    - margin: 10px
+    - color: var(--contrast18)
+    - font-family: Product Sans
+tap_action:
+  action: none
+hold_action:
+  action: toggle
+  haptic: heavy
+card_mod:
+  style: |
+    ha-card {
+      transition: 300ms !important;
+      }

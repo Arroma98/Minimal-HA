@@ -1,0 +1,688 @@
+type: vertical-stack
+cards:
+  - type: custom:button-card
+    name: Controlli
+    label: Tieni premuto
+    show_label: true
+    styles:
+      card:
+        - background: none
+        - padding: 0px 12px
+        - margin-top: 30px
+        - margin-left: '-10px'
+        - '--mdc-ripple-press-opacity': 0
+      name:
+        - font-family: Product Sans
+        - justify-self: start
+        - font-size: 20px
+        - color: var(--contrast20)
+      label:
+        - font-family: Product Sans Light
+        - justify-self: start
+        - font-size: 16px
+        - color: var(--contrast10)
+  - square: false
+    type: grid
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            entity: light.luce_ingresso_light
+            aspect_ratio: 1/1
+            tap_action:
+              action: more-info
+            hold_action:
+              haptic: heavy
+              action: toggle
+            name: ' '
+            icon: mdi:lightbulb-off-outline
+            styles:
+              card:
+                - background: var(--contrast0)
+                - '--mdc-ripple-press-opacity': 0
+                - border-radius: 15px
+                - color: var(--contrast15)
+                - box-shadow: none
+                - margin-top: 5px
+                - margin-bottom: 5px
+              img_cell:
+                - justify-self: center
+                - width: 30px
+                - margin: 10px 0px 0px 0px
+              icon:
+                - width: 30px
+                - height: 30px
+                - color: var(--contrast15)
+              name:
+                - justify-self: center
+                - font-size: 12px
+                - margin: 0px 0px 10px 0px
+                - color: var(--black)
+                - font-family: Product Sans
+            state:
+              - value: 'on'
+                icon: mdi:lightbulb-on
+                styles:
+                  card:
+                    - background: var(--yellow)
+                    - box-shadow: 0px 0px 6px 2px var(--yellow)
+                    - border-radius: 100px
+                  icon:
+                    - color: var(--black)
+            card_mod:
+              style: |
+                ha-card {
+                  transition: 300ms !important;
+                  }
+          - type: custom:button-card
+            name: Ingresso
+            show_label: false
+            styles:
+              card:
+                - background: none
+                - padding: 0px 0px
+                - margin-top: '-1px'
+                - '--mdc-ripple-press-opacity': 0
+              name:
+                - font-family: Product Sans
+                - justify-self: center
+                - font-size: 13px
+                - color: var(--contrast20)
+              label:
+                - font-family: Product Sans Light
+                - justify-self: start
+                - font-size: 16px
+                - color: var(--contrast10)
+            card_mod:
+              style: |
+                ha-card {
+                  margin-top: 15px;
+                  }
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            entity: switch.luce_divano_switch
+            aspect_ratio: 1/1
+            tap_action:
+              action: more-info
+            hold_action:
+              haptic: heavy
+              action: toggle
+            name: ' '
+            icon: mdi:floor-lamp-outline
+            styles:
+              card:
+                - background: var(--contrast0)
+                - '--mdc-ripple-press-opacity': 0
+                - border-radius: 15px
+                - color: var(--contrast15)
+                - box-shadow: none
+                - margin-top: 5px
+                - margin-bottom: 5px
+              img_cell:
+                - justify-self: center
+                - width: 30px
+                - margin: 10px 0px 0px 0px
+              icon:
+                - width: 30px
+                - height: 30px
+                - color: var(--contrast15)
+              name:
+                - justify-self: center
+                - font-size: 12px
+                - margin: 0px 0px 10px 0px
+                - color: var(--black)
+                - font-family: Product Sans
+            state:
+              - value: 'on'
+                icon: mdi:floor-lamp
+                styles:
+                  card:
+                    - background: var(--yellow)
+                    - border-radius: 100px
+                    - box-shadow: 0px 0px 6px 2px var(--yellow)
+                  icon:
+                    - color: var(--black)
+            card_mod:
+              style: |
+                ha-card {
+                  transition: 300ms !important;
+                  }
+          - type: custom:button-card
+            name: Divano
+            show_label: false
+            styles:
+              card:
+                - background: none
+                - padding: 0px 0px
+                - margin-top: '-1px'
+                - '--mdc-ripple-press-opacity': 0
+              name:
+                - font-family: Product Sans
+                - justify-self: center
+                - font-size: 13px
+                - color: var(--contrast20)
+              label:
+                - font-family: Product Sans Light
+                - justify-self: start
+                - font-size: 16px
+                - color: var(--contrast10)
+            card_mod:
+              style: |
+                ha-card {
+                  margin-top: 15px;
+                  }
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            entity: switch.router_2
+            aspect_ratio: 1/1
+            tap_action:
+              action: more-info
+            hold_action:
+              haptic: heavy
+              action: toggle
+            name: ' '
+            icon: mdi:router-wireless-off
+            styles:
+              card:
+                - background: var(--contrast0)
+                - '--mdc-ripple-press-opacity': 0
+                - border-radius: 15px
+                - color: var(--contrast15)
+                - box-shadow: none
+                - margin-top: 5px
+                - margin-bottom: 5px
+              img_cell:
+                - justify-self: center
+                - width: 30px
+                - margin: 10px 0px 0px 0px
+              icon:
+                - width: 30px
+                - height: 30px
+                - color: var(--contrast15)
+              name:
+                - justify-self: center
+                - font-size: 12px
+                - margin: 0px 0px 10px 0px
+                - color: var(--contrast15)
+                - font-family: Product Sans
+            state:
+              - value: 'on'
+                icon: mdi:router-wireless
+                styles:
+                  card:
+                    - background: var(--contrast15)
+                    - border-radius: 100px
+                  icon:
+                    - color: var(--contrast0)
+            card_mod:
+              style: |
+                ha-card {
+                  transition: 300ms !important;
+                  }
+          - type: custom:button-card
+            name: Router
+            show_label: false
+            styles:
+              card:
+                - background: none
+                - padding: 0px 0px
+                - margin-top: '-1px'
+                - '--mdc-ripple-press-opacity': 0
+              name:
+                - font-family: Product Sans
+                - justify-self: center
+                - font-size: 13px
+                - color: var(--contrast20)
+              label:
+                - font-family: Product Sans Light
+                - justify-self: start
+                - font-size: 16px
+                - color: var(--contrast10)
+            card_mod:
+              style: |
+                ha-card {
+                  margin-top: 15px;
+                  }
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            entity: input_boolean.ctrl_router_on_off_auto
+            aspect_ratio: 1/1
+            tap_action:
+              action: toggle
+              haptic: heavy
+            hold_action:
+              action: more-info
+            name: ' '
+            icon: mdi:router-wireless-off
+            styles:
+              card:
+                - background: var(--contrast0)
+                - '--mdc-ripple-press-opacity': 0
+                - border-radius: 15px
+                - color: var(--contrast15)
+                - box-shadow: none
+                - margin-top: 5px
+                - margin-bottom: 5px
+              img_cell:
+                - justify-self: center
+                - width: 30px
+                - margin: 10px 0px 0px 0px
+              icon:
+                - width: 30px
+                - height: 30px
+                - color: var(--contrast15)
+              name:
+                - justify-self: center
+                - font-size: 12px
+                - margin: 0px 0px 10px 0px
+                - color: var(--black)
+                - font-family: Product Sans
+            state:
+              - value: 'on'
+                icon: mdi:router-wireless
+                styles:
+                  card:
+                    - background: var(--contrast15)
+                    - border-radius: 100px
+                  icon:
+                    - color: var(--contrast0)
+            card_mod:
+              style: |
+                ha-card {
+                  transition: 300ms !important;
+                  }
+          - type: custom:button-card
+            entity: input_boolean.ctrl_router_on_off_auto
+            name: Controllo
+            show_icon: false
+            show_label: false
+            styles:
+              card:
+                - background: none
+                - padding: 0px 0px
+                - margin-top: '-1px'
+                - '--mdc-ripple-press-opacity': 0
+              name:
+                - font-family: Product Sans
+                - justify-self: center
+                - font-size: 13px
+                - color: var(--contrast20)
+              label:
+                - font-family: Product Sans Light
+                - justify-self: start
+                - font-size: 16px
+                - color: var(--contrast10)
+            state:
+              - value: 'on'
+                name: Manuale
+              - value: 'off'
+                name: Auto
+            card_mod:
+              style: |
+                ha-card {
+                  margin-top: 15px;
+                  }
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            entity: group.luci_soggiorno
+            aspect_ratio: 1/1
+            tap_action:
+              action: more-info
+            hold_action:
+              haptic: heavy
+              action: toggle
+            name: ' '
+            icon: mdi:lightbulb-group-off-outline
+            styles:
+              card:
+                - background: var(--contrast0)
+                - '--mdc-ripple-press-opacity': 0
+                - border-radius: 15px
+                - color: var(--contrast15)
+                - box-shadow: none
+                - margin-top: 5px
+                - margin-bottom: 5px
+              img_cell:
+                - justify-self: center
+                - width: 30px
+                - margin: 10px 0px 0px 0px
+              icon:
+                - width: 30px
+                - height: 30px
+                - color: var(--contrast15)
+              name:
+                - justify-self: center
+                - font-size: 12px
+                - margin: 0px 0px 10px 0px
+                - color: var(--black)
+                - font-family: Product Sans
+            state:
+              - value: 'on'
+                icon: mdi:lightbulb-group
+                styles:
+                  card:
+                    - background: var(--yellow)
+                    - border-radius: 100px
+                    - box-shadow: 0px 0px 6px 2px var(--yellow)
+                  icon:
+                    - color: var(--black)
+            card_mod:
+              style: |
+                ha-card {
+                  transition: 300ms !important;
+                  }
+          - type: custom:button-card
+            name: Soggiorno
+            show_label: false
+            styles:
+              card:
+                - background: none
+                - padding: 0px 0px
+                - margin-top: '-1px'
+                - '--mdc-ripple-press-opacity': 0
+              name:
+                - font-family: Product Sans
+                - justify-self: center
+                - font-size: 13px
+                - color: var(--contrast20)
+              label:
+                - font-family: Product Sans Light
+                - justify-self: start
+                - font-size: 16px
+                - color: var(--contrast10)
+            card_mod:
+              style: |
+                ha-card {
+                  margin-top: 15px;
+                  }
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            entity: input_boolean.luci_soggiorno_automatico
+            aspect_ratio: 1/1
+            tap_action:
+              action: more-info
+            hold_action:
+              haptic: heavy
+              action: toggle
+            name: ' '
+            icon: mdi:lightbulb-group-off-outline
+            styles:
+              card:
+                - background: var(--contrast0)
+                - '--mdc-ripple-press-opacity': 0
+                - border-radius: 15px
+                - color: var(--contrast15)
+                - box-shadow: none
+                - margin-top: 5px
+                - margin-bottom: 5px
+              img_cell:
+                - justify-self: center
+                - width: 30px
+                - margin: 10px 0px 0px 0px
+              icon:
+                - width: 30px
+                - height: 30px
+                - color: var(--contrast15)
+              name:
+                - justify-self: center
+                - font-size: 12px
+                - margin: 0px 0px 10px 0px
+                - color: var(--black)
+                - font-family: Product Sans
+            state:
+              - value: 'on'
+                icon: mdi:lightbulb-group
+                styles:
+                  card:
+                    - background: var(--contrast15)
+                    - border-radius: 100px
+                  icon:
+                    - color: var(--contrast0)
+            card_mod:
+              style: |
+                ha-card {
+                  transition: 300ms !important;
+                  }
+          - type: custom:button-card
+            entity: input_boolean.luci_soggiorno_automatico
+            name: Soggiorno
+            show_icon: false
+            show_label: false
+            styles:
+              card:
+                - background: none
+                - padding: 0px 0px
+                - margin-top: '-1px'
+                - '--mdc-ripple-press-opacity': 0
+              name:
+                - font-family: Product Sans
+                - justify-self: center
+                - font-size: 13px
+                - color: var(--contrast20)
+              label:
+                - font-family: Product Sans Light
+                - justify-self: start
+                - font-size: 16px
+                - color: var(--contrast10)
+            state:
+              - value: 'on'
+                name: Auto
+              - value: 'off'
+                name: Manuale
+            card_mod:
+              style: |
+                ha-card {
+                  margin-top: 15px;
+                  }
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            entity: light.luce_mobile_light
+            aspect_ratio: 1/1
+            tap_action:
+              action: more-info
+            hold_action:
+              haptic: heavy
+              action: toggle
+            name: ' '
+            icon: mdi:lightbulb-off-outline
+            styles:
+              card:
+                - background: var(--contrast0)
+                - '--mdc-ripple-press-opacity': 0
+                - border-radius: 15px
+                - color: var(--contrast15)
+                - box-shadow: none
+                - margin-top: 5px
+                - margin-bottom: 5px
+              img_cell:
+                - justify-self: center
+                - width: 30px
+                - margin: 10px 0px 0px 0px
+              icon:
+                - width: 30px
+                - height: 30px
+                - color: var(--contrast15)
+              name:
+                - justify-self: center
+                - font-size: 12px
+                - margin: 0px 0px 10px 0px
+                - color: var(--black)
+                - font-family: Product Sans
+            state:
+              - value: 'on'
+                icon: mdi:lightbulb-on
+                styles:
+                  card:
+                    - background: var(--yellow)
+                    - box-shadow: 0px 0px 6px 2px var(--yellow)
+                    - border-radius: 100px
+                  icon:
+                    - color: var(--black)
+            card_mod:
+              style: |
+                ha-card {
+                  transition: 300ms !important;
+                  }
+          - type: custom:button-card
+            name: Mobile
+            show_icon: false
+            show_label: false
+            styles:
+              card:
+                - background: none
+                - padding: 0px 0px
+                - margin-top: '-1px'
+                - '--mdc-ripple-press-opacity': 0
+              name:
+                - font-family: Product Sans
+                - justify-self: center
+                - font-size: 13px
+                - color: var(--contrast20)
+              label:
+                - font-family: Product Sans Light
+                - justify-self: start
+                - font-size: 16px
+                - color: var(--contrast10)
+            card_mod:
+              style: |
+                ha-card {
+                  margin-top: 15px;
+                  }
+    columns: 4
+  - type: custom:button-card
+    entity: media_player.soggiorno_2
+    name: Televisione
+    show_icon: false
+    tap_action:
+      action: more-info
+      haptic: light
+    styles:
+      card:
+        - border-radius: 18px
+        - border-style: none
+        - background-color: var(--contrast0)
+      grid:
+        - grid-template-areas: '"icon_cells" "n" "button"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      custom_fields:
+        icon_cells:
+          - justify-self: start
+          - margin-top: 12px
+          - margin-left: 15px
+      name:
+        - font-size: 90%
+        - font-weight: bold
+        - justify-self: start
+        - margin-top: 6px
+        - margin-left: 15px
+    state:
+      - value: 'on'
+        styles:
+          card:
+            - background-color: var(--contrast15)
+            - color: var(--contrast0)
+      - value: playing
+        styles:
+          card:
+            - background-color: var(--contrast15)
+            - color: var(--contrast0)
+    custom_fields:
+      icon_cells: |
+        [[[
+          return `<ha-icon
+            icon="mdi:monitor"
+            style="width: 25px; height: 25px; color: auto;">
+           </ha-icon> 
+           `
+        ]]]
+      button:
+        card:
+          type: custom:button-card
+          entity: media_player.soggiorno_2
+          show_icon: false
+          show_name: false
+          styles:
+            card:
+              - border-style: none
+              - margin-top: '-4%'
+              - margin-bottom: '-5%'
+              - background-color: transparent
+            grid:
+              - grid-template-areas: '"state icon_cells"'
+              - grid-template-columns: min-content 1fr
+              - grid-template-rows: min-content
+            custom_fields:
+              state:
+                - justify-self: start
+                - align-self: middle
+                - font-size: 12px
+                - filter: opacity(50%)
+                - margin-left: 15px
+                - margin-top: 1.6px
+                - color: |
+                    [[[
+                     var state = states['media_player.soggiorno_2'].state
+                     if(state != "off")
+                      return `var(--contrast0)`;
+                     else 
+                      return `var(--contrast15)`;
+                    ]]]
+              icon_cells:
+                - justify-self: end
+                - align-self: start
+                - margin-right: 15px
+                - width: 45px
+          custom_fields:
+            icon_cells: |
+              [[[
+               var state = states['media_player.soggiorno_2'].state;
+               if(state != "off")
+                return `<ha-icon
+                icon="mdi:toggle-switch"
+                style="color: var(--contrast0);">
+                </ha-icon>`;
+               else 
+                return `<ha-icon
+                icon="mdi:toggle-switch-off"
+                style="color: auto;">
+                </ha-icon>
+                `;
+              ]]]
+            state: |
+              [[[
+                var state = states['media_player.soggiorno_2'].state
+               if(state != "off")
+                return `<span>Accesa</span>`;
+               else 
+                return `<span>Spento</span>`;
+              ]]]
+  - type: custom:mushroom-chips-card
+    chips:
+      - type: template
+        tap_action:
+          action: navigate
+          navigation_path: /servizi-casa/0
+        hold_action:
+          action: none
+        double_tap_action:
+          action: none
+        icon: mdi:remote-tv
+        content: Telecomando
+    alignment: end
+    card_mod:
+      style: |
+        ha-card {
+          --chip-background: var(--contrast0);
+          --primary-text-color: var(--contrast18);
+          font-family: Product Sans Black;
+          margin-right: 5px;
+          }
+  - type: custom:gap-card
+    height: 80

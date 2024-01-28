@@ -1,0 +1,117 @@
+type: vertical-stack
+cards:
+  - type: custom:mushroom-chips-card
+    chips:
+      - type: entity
+        entity: sensor.power_highest_peak_time_today
+        double_tap_action:
+          action: none
+        icon: mdi:solar-power-variant
+        content_info: state
+        tap_action:
+          action: more-info
+        hold_action:
+          action: none
+      - type: entity
+        entity: sensor.power_highest_peak_time_tomorrow
+        double_tap_action:
+          action: none
+        icon: mdi:solar-power-variant
+        content_info: state
+        tap_action:
+          action: more-info
+        hold_action:
+          action: none
+    card_mod:
+      style: |
+        ha-card {
+          --chip-background: var(--contrast0);
+          --primary-text-color: var(--contrast18);
+          margin-top: -5px;
+          font-family: Product Sans;
+          }
+    alignment: start
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - graph: line
+        type: sensor
+        entity: sensor.consumo_energia
+        hours_to_show: 24
+        detail: 1
+        name: Consumo
+        icon: none
+        card_mod:
+          class: graph
+          style: |
+            ha-card {
+              box-shadow: none;
+              }
+            .graph {
+              background: var(--contrast0);
+            }
+                .graph .name {
+                  background: var(--contrast15);
+                  color: var(--contrast0);
+                }
+      - graph: line
+        type: sensor
+        entity: sensor.2_fotovoltaico_channel_1_power
+        hours_to_show: 24
+        detail: 1
+        name: Produzione
+        icon: none
+        card_mod:
+          class: graph
+          style: |
+            ha-card {
+              box-shadow: none;
+              }
+            .graph {
+              background: var(--contrast0);
+            }
+                .graph .name {
+                  background: var(--contrast15);
+                  color: var(--contrast0);
+                }
+      - graph: line
+        type: sensor
+        entity: sensor.acquisto_positivo
+        hours_to_show: 24
+        detail: 1
+        name: Acquisto
+        icon: none
+        card_mod:
+          class: graph
+          style: |
+            ha-card {
+              box-shadow: none;
+              }
+            .graph {
+              background: var(--contrast0);
+            }
+                .graph .name {
+                  background: var(--contrast15);
+                  color: var(--contrast0);
+                }
+      - graph: line
+        type: sensor
+        entity: sensor.cessione_positiva
+        hours_to_show: 24
+        detail: 1
+        name: Cessione
+        icon: none
+        card_mod:
+          class: graph
+          style: |
+            ha-card {
+              box-shadow: none;
+              }
+            .graph {
+              background: var(--contrast0);
+            }
+                .graph .name {
+                  background: var(--contrast15);
+                  color: var(--contrast0);
+                }
