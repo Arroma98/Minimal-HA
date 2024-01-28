@@ -1,5 +1,9 @@
 # Minimal-HA
 Minimal dashboard for home assistant
+#### Posted in the [forum](https://community.home-assistant.io/t/rounded-dashboard-guide/543043/391?u=arroma)
+
+###### Also take a look at [pixel-like dashboard](https://github.com/Arroma98/Pixel-like-dashboard)
+
 ### Dashboard
 ![Dashboard](img/dashboard.jpg)
 
