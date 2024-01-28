@@ -17,7 +17,7 @@ Here is the new minimal dashboard for your home assistant!
 ![Device](img/Device.png)
 
 #### Cover.yaml
-![Cover](img/Covers.png)
+![Cover](img/cover.png)
 
 #### Graph.yaml
 ![Graph](img/Graph.png)
