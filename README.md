@@ -1,4 +1,4 @@
-# Minimal-HA
+# Minimal UI
 Here is the new minimal dashboard for your home assistant!
 #### Posted in the [forum](https://community.home-assistant.io/t/rounded-dashboard-guide/543043/391?u=arroma)
 
